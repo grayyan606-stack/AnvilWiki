@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  level: 'Official' | 'Cross-checked' | 'Community tracked' | 'Calculated' | 'Conflicting reports';
+  checked: string;
+  note: string;
+}
+
+const { level, checked, note } = Astro.props;
+const icons: Record<Props['level'], string> = {
+  Official: 'lucide:badge-check',
+  'Cross-checked': 'lucide:check-check',
+  'Community tracked': 'lucide:users',
+  Calculated: 'lucide:calculator',
+  'Conflicting reports': 'lucide:triangle-alert',
+};
+---
+
+<aside class="my-6 rounded-lg border border-nav/30 bg-nav/5 p-4" aria-label="Evidence status">
+  <div class="flex flex-wrap items-center gap-2">
+    <Icon name={icons[level]} class="h-4 w-4 text-nav" />
+    <strong class="text-sm text-foreground">{level}</strong>
+    <span class="rounded-full border border-border bg-background px-2 py-0.5 text-xs text-muted-foreground">
+      Checked {checked}
+    </span>
+  </div>
+  <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{note}</p>
+</aside>

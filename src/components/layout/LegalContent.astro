@@ -24,24 +24,22 @@ const year = new Date().getFullYear();
       </p>
       <h2>What We Cover</h2>
       <ul>
-        <li>Boss strategies and attack patterns</li>
-        <li>Item locations, stats, and crafting recipes</li>
-        <li>Active redeemable codes (updated daily)</li>
-        <li>Tier lists and build recommendations</li>
-        <li>Progression guides for new and returning players</li>
+        <li>Verified code and redemption status</li>
+        <li>Egg, pet, mutation, and biome reference pages</li>
+        <li>Progression and route guides for new and returning players</li>
+        <li>Calculators built from player-observed values</li>
+        <li>Dated update checks, evidence labels, and correction notes</li>
       </ul>
       <h2>Community-Driven</h2>
       <p>
-        This wiki is maintained by volunteers. If you spot an error or have content to contribute,
-        join our Discord and let us know. All content is freely accessible — no account required.
+        This wiki is maintained independently. If you spot an error, check the source policy and
+        public correction log before reporting it. All content and calculators are freely accessible —
+        no account required.
       </p>
       <h2>Contact</h2>
       <p>
-        Reach us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        or{' '}
+        Use the <a href="/contact">contact page</a> for corrections or copyright requests. For game
+        support, purchases, moderation, and account questions, use{' '}
         <a href={site.social.official} target="_blank" rel="noopener noreferrer">
           the game's official channels
         </a>
@@ -170,12 +168,9 @@ const year = new Date().getFullYear();
       </p>
       <h2>DMCA / Takedown</h2>
       <p>
-        If you believe any content on this site infringes your copyright, please contact us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        with a detailed description of the allegedly infringing material. We will review and respond
-        to valid requests promptly.
+        If you believe any content on this site infringes your copyright, use our{' '}
+        <a href="/contact">contact page</a> with a detailed description of the allegedly infringing
+        material. We will review valid requests promptly.
       </p>
       <h2>Fan-Made Notice</h2>
       <p>{site.legalNotice}</p>
@@ -189,11 +184,17 @@ const year = new Date().getFullYear();
       {/* h2, not h1 — LegalPage already renders the page H1 (single-H1 rule). */}
       <h2>Contact {site.name}</h2>
       <p>
-        {site.name} is a community-run wiki. The fastest way to reach us or contribute is through
-        our community channels below.
+        {site.name} is an independent fan resource. Use the public repository issue tracker for
+        factual corrections, broken links, accessibility problems, or copyright requests.
       </p>
       <h2>Community</h2>
       <ul>
+        <li>
+          <strong>GitHub:</strong>{' '}
+          <a href="https://github.com/grayyan606-stack/AnvilWiki/issues" target="_blank" rel="noopener noreferrer">
+            Open an issue
+          </a>
+        </li>
         {site.social.discord && (
           <li>
             <strong>Discord:</strong>{' '}
@@ -221,8 +222,9 @@ const year = new Date().getFullYear();
       </ul>
       <h2>Contributing</h2>
       <p>
-        Found a typo or outdated info? Want to add a guide? This wiki is open source — submit changes
-        via pull requests or reach out on Discord.
+        Found a typo or outdated value? Include the page URL, current in-game evidence, and check
+        date in a GitHub issue or pull request. Read the <a href="/wiki/source-policy">source policy</a>{' '}
+        before proposing update-sensitive data.
       </p>
       <h2>Reporting Issues</h2>
       <p>

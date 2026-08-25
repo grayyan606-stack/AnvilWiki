@@ -1,0 +1,91 @@
+---
+import { PETS } from '~/data/pets';
+
+const biomes = [...new Set(PETS.map((pet) => pet.biome))];
+const rarities = [...new Set(PETS.map((pet) => pet.rarity))];
+---
+
+<section class="not-prose my-8" data-pet-index>
+  <div class="grid gap-3 rounded-lg border bg-card p-4 sm:grid-cols-3">
+    <label class="text-sm font-medium">
+      Search pets
+      <input data-pet-search type="search" placeholder="Name..." class="mt-1 w-full rounded-md border bg-background px-3 py-2" />
+    </label>
+    <label class="text-sm font-medium">
+      Biome
+      <select data-pet-biome class="mt-1 w-full rounded-md border bg-background px-3 py-2">
+        <option value="">All biomes</option>
+        {biomes.map((biome) => <option value={biome}>{biome}</option>)}
+      </select>
+    </label>
+    <label class="text-sm font-medium">
+      Rarity
+      <select data-pet-rarity class="mt-1 w-full rounded-md border bg-background px-3 py-2">
+        <option value="">All rarities</option>
+        {rarities.map((rarity) => <option value={rarity}>{rarity}</option>)}
+      </select>
+    </label>
+  </div>
+
+  <div class="mt-3 overflow-x-auto rounded-lg border">
+    <table class="w-full min-w-[680px] text-left text-sm">
+      <thead class="bg-muted">
+        <tr>
+          <th class="px-4 py-3">Pet</th>
+          <th class="px-4 py-3">Biome</th>
+          <th class="px-4 py-3">Rarity</th>
+          <th class="px-4 py-3">
+            <button type="button" data-pet-sort class="font-semibold text-nav hover:underline">Base income ↕</button>
+          </th>
+          <th class="px-4 py-3">Evidence</th>
+        </tr>
+      </thead>
+      <tbody data-pet-rows>
+        {PETS.map((pet) => (
+          <tr class="border-t" data-name={pet.name.toLowerCase()} data-biome={pet.biome} data-rarity={pet.rarity} data-income={pet.income}>
+            <td class="px-4 py-3 font-semibold">{pet.name}</td>
+            <td class="px-4 py-3">{pet.biome}</td>
+            <td class="px-4 py-3">{pet.rarity}</td>
+            <td class="px-4 py-3 tabular-nums">{pet.incomeLabel}</td>
+            <td class="px-4 py-3 text-muted-foreground">{pet.evidence}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p data-pet-empty class="mt-3 hidden text-sm text-muted-foreground">No tracked pets match these filters.</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-pet-index]').forEach((root) => {
+    const search = root.querySelector<HTMLInputElement>('[data-pet-search]');
+    const biome = root.querySelector<HTMLSelectElement>('[data-pet-biome]');
+    const rarity = root.querySelector<HTMLSelectElement>('[data-pet-rarity]');
+    const body = root.querySelector<HTMLTableSectionElement>('[data-pet-rows]');
+    const empty = root.querySelector<HTMLElement>('[data-pet-empty]');
+    let descending = true;
+
+    const filter = () => {
+      let visible = 0;
+      body?.querySelectorAll<HTMLTableRowElement>('tr').forEach((row) => {
+        const show = (row.dataset.name ?? '').includes(search?.value.trim().toLowerCase() ?? '') &&
+          (!biome?.value || row.dataset.biome === biome.value) &&
+          (!rarity?.value || row.dataset.rarity === rarity.value);
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+      empty?.classList.toggle('hidden', visible > 0);
+    };
+
+    search?.addEventListener('input', filter);
+    biome?.addEventListener('change', filter);
+    rarity?.addEventListener('change', filter);
+    root.querySelector('[data-pet-sort]')?.addEventListener('click', () => {
+      if (!body) return;
+      const rows = [...body.querySelectorAll<HTMLTableRowElement>('tr')];
+      rows.sort((a, b) => (Number(a.dataset.income) - Number(b.dataset.income)) * (descending ? -1 : 1));
+      rows.forEach((row) => body.append(row));
+      descending = !descending;
+    });
+  });
+</script>

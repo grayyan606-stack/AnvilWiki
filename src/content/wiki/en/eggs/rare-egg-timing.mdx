@@ -1,0 +1,33 @@
+---
+title: 'Steal an Egg Rare Egg Timing and Run Planner Guide'
+description: 'Plan rare egg checks with a measured spawn interval, round-trip route time, escape buffer, and realistic runs-per-hour estimate.'
+category: 'eggs'
+date: 2026-08-26
+lastModified: 2026-08-26
+tags: ['eggs', 'timer', 'tools']
+summary: 'Rare egg timing should be treated as a measured server pattern, not a permanent universal constant. Record the interval you observe, time a full route, add an escape buffer, and use the run planner to decide whether one cycle can support another safe attempt.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Calculated" checked="August 26, 2026" note="The planner uses the interval and route time you enter. Its output is an estimate, not a promise about a server's spawn state." />
+
+## How do you measure a useful cycle?
+
+1. Start a timer when the relevant eggs reset or spawn.
+2. Record at least three cycles in the same server.
+3. Time a complete base-to-nest-to-base route.
+4. Add time for guardian avoidance, other players, and carrying the egg.
+5. Use the median instead of the fastest run.
+
+<Callout type="warn" title="Server behavior can differ">A reported five-minute cadence is a useful starting assumption, but events, updates, or server timing can make your observed interval different.</Callout>
+
+## What does the planner calculate?
+
+The [Egg Run Planner](/tools/calculators#run-calculator) compares:
+
+`spawn interval − round trip − escape buffer`
+
+A positive result is spare time. A negative result means the planned route extends beyond the cycle and should be shortened, delayed, or attempted from a closer position.

@@ -1,0 +1,32 @@
+---
+title: 'Steal an Egg Calculators: Income, Speed, Runs, and Biomes'
+description: 'Use five free Steal an Egg calculators for pet income, mutations, speed goals, egg runs, and biome readiness with transparent formulas.'
+category: 'tools'
+date: 2026-08-26
+lastModified: 2026-08-26
+tags: ['tools', 'calculator', 'income', 'speed']
+summary: 'These five calculators use values you can see or measure in your own game: base income, mutation and size multipliers, speed gain, route time, spawn interval, biome minimum, and safety margin. No hidden pet rates or permanent threshold assumptions are inserted by the site.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import CalculatorSuite from '~/components/article/CalculatorSuite.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Calculated" checked="August 26, 2026" note="Every result is derived locally in your browser from the values you enter. Nothing is uploaded or stored." />
+
+## Which Steal an Egg calculator should you use?
+
+- **Pet Income Calculator:** total contribution across mutation, size, copies, and time.
+- **Mutation Comparison:** compare two multipliers on the same base pet.
+- **Speed Goal Calculator:** estimate treadmill time to a target.
+- **Egg Run Planner:** compare route time and buffer with a spawn interval.
+- **Biome Readiness Checker:** add a safety margin to a reported minimum.
+
+<CalculatorSuite />
+
+## What assumptions do these tools make?
+
+The income tools assume the multipliers you enter apply multiplicatively to the base value. The route tool assumes a stable measured interval. The speed tool assumes your sampled gain rate stays similar. The biome tool does not know guardian behavior; it only adds the margin you choose.
+
+<Callout type="info" title="Use the live card">If the calculator and the game disagree, the live in-game value wins. Update-sensitive mechanics can change without notice.</Callout>

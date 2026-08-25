@@ -1,0 +1,33 @@
+---
+title: 'Steal an Egg Speed Training and Treadmill Guide'
+description: 'Measure treadmill speed gain, estimate time to the next biome, choose a safety margin, and avoid relying on stale threshold tables.'
+category: 'guides'
+date: 2026-08-26
+lastModified: 2026-08-26
+tags: ['speed', 'treadmill', 'biomes']
+summary: 'Measure your own treadmill gain over a fixed sample, convert it to speed per second, and estimate the remaining training time. Use the next biome threshold only as a starting point, then add a safety margin for guardian pressure, route errors, and carrying larger eggs.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Calculated" checked="August 26, 2026" note="Training time is calculated from the current speed, target, and gain rate you observe in your own session." />
+
+## How do you measure speed gain?
+
+1. Record your current speed.
+2. Train continuously for at least 30 seconds.
+3. Record the new speed.
+4. Divide the increase by the sample duration.
+5. Repeat once and use the lower or median rate.
+
+## What is the time formula?
+
+`time remaining = (target speed − current speed) ÷ measured gain per second`
+
+Enter the values in the [Speed Goal Calculator](/tools/calculators#speed-calculator).
+
+<Callout type="warn" title="Minimum is not comfortable">A biome entry number may not account for the guardian, route, egg size, server delay, or other players. Add a safety margin with the [Biome Readiness Checker](/tools/calculators#biome-calculator).</Callout>
+
+For progression order and known threshold conflicts, see [All Biomes](/biomes/all-biomes).

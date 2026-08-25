@@ -1,11 +1,11 @@
 {
-  "name": "Anvil Quest Wiki",
-  "short_name": "AQ Wiki",
-  "description": "Complete Anvil Quest wiki with boss guides, codes, and tier lists.",
+  "name": "Steal an Egg Wiki",
+  "short_name": "Egg Wiki",
+  "description": "Independent Steal an Egg wiki with codes, eggs, pets, biomes, guides, tools, and updates.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f97316",
+  "theme_color": "#2e9f68",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

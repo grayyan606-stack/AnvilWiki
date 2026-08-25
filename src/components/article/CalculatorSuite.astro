@@ -1,0 +1,131 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const calculators = [
+  { id: 'income', title: 'Pet Income Calculator', icon: 'lucide:coins', description: 'Combine the live base rate with mutation, size, copies, and time.' },
+  { id: 'mutation', title: 'Mutation Comparison', icon: 'lucide:sparkles', description: 'Compare two mutation multipliers on the same pet.' },
+  { id: 'speed', title: 'Speed Goal Calculator', icon: 'lucide:gauge', description: 'Estimate training time from a gain rate you measured.' },
+  { id: 'run', title: 'Egg Run Planner', icon: 'lucide:timer', description: 'Compare a respawn interval with route time and an escape buffer.' },
+  { id: 'biome', title: 'Biome Readiness Checker', icon: 'lucide:map', description: 'Add a safety margin to a reported minimum before attempting a steal.' },
+];
+---
+
+<div class="not-prose my-8 space-y-6" data-calculator-suite>
+  <nav class="flex flex-wrap gap-2" aria-label="Calculator shortcuts">
+    {calculators.map((item) => (
+      <a href={`#${item.id}-calculator`} class="rounded-full border bg-card px-3 py-1.5 text-sm font-medium hover:border-nav/50 hover:text-nav">
+        {item.title}
+      </a>
+    ))}
+  </nav>
+
+  <section id="income-calculator" class="scroll-mt-20 rounded-xl border bg-card p-5" data-calc="income">
+    <header class="flex gap-3">
+      <Icon name={calculators[0].icon} class="mt-1 h-5 w-5 text-nav" />
+      <div><h2 class="text-xl font-bold">{calculators[0].title}</h2><p class="text-sm text-muted-foreground">{calculators[0].description}</p></div>
+    </header>
+    <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <label class="text-sm font-medium">Base income / second<input data-field="base" type="number" min="0" step="any" value="100" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Mutation multiplier<input data-field="mutation" type="number" min="0" step="0.01" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Size multiplier<input data-field="size" type="number" min="0" step="0.01" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Number of copies<input data-field="copies" type="number" min="1" step="1" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    </div>
+    <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  </section>
+
+  <section id="mutation-calculator" class="scroll-mt-20 rounded-xl border bg-card p-5" data-calc="mutation">
+    <header class="flex gap-3">
+      <Icon name={calculators[1].icon} class="mt-1 h-5 w-5 text-nav" />
+      <div><h2 class="text-xl font-bold">{calculators[1].title}</h2><p class="text-sm text-muted-foreground">{calculators[1].description}</p></div>
+    </header>
+    <div class="mt-5 grid gap-3 sm:grid-cols-3">
+      <label class="text-sm font-medium">Base income / second<input data-field="base" type="number" min="0" step="any" value="1000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Current multiplier<input data-field="current" type="number" min="0" step="0.01" value="1.25" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Target multiplier<input data-field="target" type="number" min="0" step="0.01" value="3" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    </div>
+    <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  </section>
+
+  <section id="speed-calculator" class="scroll-mt-20 rounded-xl border bg-card p-5" data-calc="speed">
+    <header class="flex gap-3">
+      <Icon name={calculators[2].icon} class="mt-1 h-5 w-5 text-nav" />
+      <div><h2 class="text-xl font-bold">{calculators[2].title}</h2><p class="text-sm text-muted-foreground">{calculators[2].description}</p></div>
+    </header>
+    <div class="mt-5 grid gap-3 sm:grid-cols-3">
+      <label class="text-sm font-medium">Current speed<input data-field="current" type="number" min="0" step="any" value="10000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Target speed<input data-field="target" type="number" min="0" step="any" value="100000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Measured gain / second<input data-field="gain" type="number" min="0" step="any" value="100" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    </div>
+    <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  </section>
+
+  <section id="run-calculator" class="scroll-mt-20 rounded-xl border bg-card p-5" data-calc="run">
+    <header class="flex gap-3">
+      <Icon name={calculators[3].icon} class="mt-1 h-5 w-5 text-nav" />
+      <div><h2 class="text-xl font-bold">{calculators[3].title}</h2><p class="text-sm text-muted-foreground">{calculators[3].description}</p></div>
+    </header>
+    <div class="mt-5 grid gap-3 sm:grid-cols-3">
+      <label class="text-sm font-medium">Respawn interval (minutes)<input data-field="interval" type="number" min="0.1" step="0.1" value="5" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Round trip (seconds)<input data-field="route" type="number" min="0" step="1" value="180" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Escape buffer (seconds)<input data-field="buffer" type="number" min="0" step="1" value="45" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    </div>
+    <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  </section>
+
+  <section id="biome-calculator" class="scroll-mt-20 rounded-xl border bg-card p-5" data-calc="biome">
+    <header class="flex gap-3">
+      <Icon name={calculators[4].icon} class="mt-1 h-5 w-5 text-nav" />
+      <div><h2 class="text-xl font-bold">{calculators[4].title}</h2><p class="text-sm text-muted-foreground">{calculators[4].description}</p></div>
+    </header>
+    <div class="mt-5 grid gap-3 sm:grid-cols-3">
+      <label class="text-sm font-medium">Current speed<input data-field="current" type="number" min="0" step="any" value="800000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Reported minimum<input data-field="minimum" type="number" min="0" step="any" value="700000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+      <label class="text-sm font-medium">Safety margin (%)<input data-field="margin" type="number" min="0" step="1" value="25" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    </div>
+    <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  </section>
+</div>
+
+<script>
+  const number = (root: Element, field: string) => Number((root.querySelector(`[data-field="${field}"]`) as HTMLInputElement | null)?.value || 0);
+  const compact = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 2 });
+  const exact = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
+  const duration = (seconds: number) => {
+    if (!Number.isFinite(seconds) || seconds < 0) return 'Enter valid values';
+    const days = Math.floor(seconds / 86400);
+    const hours = Math.floor((seconds % 86400) / 3600);
+    const minutes = Math.ceil((seconds % 3600) / 60);
+    return [days && `${days}d`, hours && `${hours}h`, minutes && `${minutes}m`].filter(Boolean).join(' ') || 'less than 1 minute';
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-calc]').forEach((root) => {
+    const output = root.querySelector<HTMLOutputElement>('[data-result]');
+    const update = () => {
+      const type = root.dataset.calc;
+      if (!output) return;
+      if (type === 'income') {
+        const perSecond = number(root, 'base') * number(root, 'mutation') * number(root, 'size') * Math.max(1, number(root, 'copies'));
+        output.textContent = `${compact.format(perSecond)}/s · ${compact.format(perSecond * 60)}/min · ${compact.format(perSecond * 3600)}/hour · ${compact.format(perSecond * 86400)}/day`;
+      } else if (type === 'mutation') {
+        const current = number(root, 'base') * number(root, 'current');
+        const target = number(root, 'base') * number(root, 'target');
+        output.textContent = `Current: ${compact.format(current)}/s · Target: ${compact.format(target)}/s · Gain: ${compact.format(target - current)}/s`;
+      } else if (type === 'speed') {
+        const gap = Math.max(0, number(root, 'target') - number(root, 'current'));
+        const gain = number(root, 'gain');
+        output.textContent = gap === 0 ? 'Target reached.' : gain > 0 ? `${compact.format(gap)} speed remaining · about ${duration(gap / gain)}` : 'Enter a measured gain above zero.';
+      } else if (type === 'run') {
+        const interval = number(root, 'interval') * 60;
+        const required = number(root, 'route') + number(root, 'buffer');
+        const spare = interval - required;
+        output.textContent = `${Math.floor(3600 / Math.max(interval, required))} planned runs/hour · ${spare >= 0 ? `${exact.format(spare)}s spare per cycle` : `${exact.format(Math.abs(spare))}s over the interval`}`;
+      } else if (type === 'biome') {
+        const recommended = number(root, 'minimum') * (1 + number(root, 'margin') / 100);
+        const gap = recommended - number(root, 'current');
+        output.textContent = gap <= 0 ? `Ready by this margin: recommended ${compact.format(recommended)} speed.` : `Train ${compact.format(gap)} more speed to reach the ${compact.format(recommended)} safety target.`;
+      }
+    };
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', update));
+    update();
+  });
+</script>

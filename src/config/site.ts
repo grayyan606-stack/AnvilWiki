@@ -56,36 +56,28 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: 'Anvil Quest Wiki',
-  shortName: 'AQ Wiki',
+  name: 'Steal an Egg Wiki',
+  shortName: 'Egg Wiki',
   description:
-    'Complete Anvil Quest wiki with boss guides, tier lists, codes, item locations, and beginner tips. Updated daily by the community.',
-  domain: 'anvilwiki.pages.dev',
-  tagline: 'Your forge for everything Anvil Quest',
+    'Independent Steal an Egg wiki with verified codes status, egg and pet indexes, mutations, biomes, guides, calculators, and update tracking.',
+  domain: 'steal-an-egg-wiki.pages.dev',
+  tagline: 'Steal smarter. Hatch better. Progress faster.',
   legalNotice:
-    'Anvil Quest Wiki is a fan-made community site. Not affiliated with or endorsed by the game developer.',
+    'Steal an Egg Wiki is an independent fan-made resource. It is not affiliated with Roblox or the game developer.',
   social: {
-    official: 'https://example.com/anvil-quest',
-    discord: 'https://discord.gg/example',
-    youtube: 'https://youtube.com/@example',
-    twitter: 'https://twitter.com/example',
-    reddit: 'https://reddit.com/r/anvilquest',
+    official: 'https://www.roblox.com/games/107778070777162/Steal-An-Egg',
   },
-  // 👉 APPLY TEMPLATE: point these at the game's real canonical pages.
-  sameAs: [
-    'https://example.com/anvil-quest',
-    'https://en.wikipedia.org/wiki/Anvil_Quest',
-  ],
+  sameAs: ['https://www.roblox.com/games/107778070777162/Steal-An-Egg'],
   game: {
-    name: 'Anvil Quest',
+    name: 'Steal an Egg',
     platform: 'Roblox',
-    developer: 'Forge Studios',
-    genre: 'Fantasy RPG',
-    releaseDate: '2026-01-15',
+    developer: 'and Collect Rare Pets',
+    genre: 'Collection and progression',
   },
-  // hero.webp is 1200×630 (the recommended OG share aspect ratio).
+  // hero.webp follows the site's 16:9 cover standard.
   ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ogImageHeight: 675,
+  defaultAuthor: 'Steal an Egg Wiki Editors',
 };
 
 /** Absolute site URL (no trailing slash). Falls back to the Astro `site` config. */

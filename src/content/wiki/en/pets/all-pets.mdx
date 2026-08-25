@@ -1,0 +1,35 @@
+---
+title: 'Steal an Egg All Pets Index: Biomes, Rarity, and Income'
+description: 'Search and filter tracked Steal an Egg pets by biome and rarity, compare base income, and understand current pet-count conflicts.'
+category: 'pets'
+date: 2026-08-26
+lastModified: 2026-08-26
+tags: ['pets', 'index', 'income', 'rarity']
+gameVersion: 'Post-Cherry Blossom'
+summary: 'Recent public indexes disagree on the total because Cherry Blossom arrived after several earlier lists. This launch index exposes only cross-checked or clearly labeled community records, lets you filter and sort them, and treats the live in-game Pet Index as the final authority.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import PetIndex from '~/components/article/PetIndex.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Conflicting reports" checked="August 26, 2026" note="Pre-update lists commonly report nine biomes and about 78 pets; newer post-update tracking reports ten biomes and 86 pets. The table below is a conservative verified subset, not a fabricated complete roster." />
+
+## Which pets are currently tracked?
+
+Use search, biome and rarity filters, then sort by recorded base income. Mutation and size are deliberately excluded from the base-rate column.
+
+<PetIndex />
+
+<Callout type="info" title="Coverage status">This first release publishes 16 records with transparent evidence labels. Missing records remain missing until their name, biome, rarity, and base rate can be checked together.</Callout>
+
+## Why do pet totals disagree?
+
+Articles published before the Cherry Blossom update describe nine standard biomes. Newer trackers add Cherry Blossom as the tenth and include its pets, producing a larger total. Search snippets can keep showing the older number after the game changes.
+
+## How should you compare pets?
+
+Start with base income, then account for mutation, size, and the number of copies placed at your base. Use the [Pet Income Calculator](/tools/calculators#income-calculator) for your actual values.
+
+Reference points: [recent post-update index](https://www.eldorado.gg/blog/roblox-en/steal-an-egg-all-pets-index/), [earlier tracked egg and pet list](https://beebom.com/steal-an-egg-all-eggs/), and the live in-game Index.

@@ -151,6 +151,7 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={`${site.name} guide cover`} />
     {
       // Only declare dimensions we actually know: the default hero has fixed
       // site dims; per-article covers pass their real size; unknown = omit
@@ -188,10 +189,11 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
     )}
 
     {/* Twitter */}
-    <meta name="twitter:card" content={article ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={`${site.name} guide cover`} />
 
     {/* Theme color (browser chrome) is injected by the runtime script below —
         meta content is a plain string where var() never resolves. */}

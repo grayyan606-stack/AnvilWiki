@@ -1,0 +1,37 @@
+---
+title: 'Steal an Egg Wiki Source and Evidence Policy'
+description: 'See how this independent wiki labels official facts, cross-checked observations, community data, calculations, and conflicting reports.'
+category: 'wiki'
+date: 2026-08-26
+lastModified: 2026-08-26
+tags: ['sources', 'editorial-policy', 'corrections']
+summary: 'Every update-sensitive claim is assigned an evidence level and check date. Official wording has priority, cross-checked observations require more than one current source, calculations expose their formula, and conflicting reports remain visible instead of being silently converted into a false exact answer.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+
+<EvidencePanel level="Official" checked="August 26, 2026" note="This is the editorial contract used across the site." />
+
+## What do the evidence labels mean?
+
+| Label | Meaning |
+| --- | --- |
+| Official | Published by Roblox or the game developer |
+| Cross-checked | Repeated in multiple recent, independent observations |
+| Community tracked | Useful player-recorded data that can change without notice |
+| Calculated | Produced from an exposed formula and user-supplied inputs |
+| Conflicting reports | Current sources disagree; the disagreement is part of the answer |
+
+## How are conflicts handled?
+
+The pet and biome totals are a good example. Older current-month sources describe nine biomes and roughly 78 pets, while post-update trackers include Cherry Blossom and report ten biomes and 86 pets. We preserve the conflict, state the check date, and treat the live in-game Index as the final authority.
+
+## Correction rules
+
+- A correction keeps its date and reason.
+- A changed number does not erase the earlier source context.
+- Unverified codes are never promoted into the active list.
+- Calculators do not hide assumptions behind site-supplied rates.
+
+See the [data corrections log](/updates/data-corrections) for launch-state known gaps.
