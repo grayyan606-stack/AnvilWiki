@@ -45,13 +45,39 @@
     "accept": "Accept",
     "decline": "Decline",
     "consentTitle": "Cookies",
-    "bossCard": { "title": "Overview", "hp": "HP", "weakness": "Weakness", "resistant": "Resistant", "location": "Location", "level": "Recommended" },
-    "codesTable": { "active": "Active Codes", "expired": "Expired Codes", "reward": "Reward", "expires": "Expires", "source": "Source", "code": "Code" },
+    "bossCard": {
+      "title": "Overview",
+      "hp": "HP",
+      "weakness": "Weakness",
+      "resistant": "Resistant",
+      "location": "Location",
+      "level": "Recommended"
+    },
+    "codesTable": {
+      "active": "Active Codes",
+      "expired": "Expired Codes",
+      "reward": "Reward",
+      "expires": "Expires",
+      "source": "Source",
+      "code": "Code"
+    },
     "codesFaq": [
-      { "question": "Are there any working Steal an Egg codes?", "answer": "No verified working codes were found for the current experience as of August 26, 2026." },
-      { "question": "Where do I redeem Steal an Egg codes?", "answer": "The current game interface does not include a confirmed code-redemption field. Do not trust unverified strings posted as codes." },
-      { "question": "How is this page verified?", "answer": "We compare the current Roblox experience, recent reputable reporting, and visible in-game redemption options before changing code status." },
-      { "question": "What happens if codes are added later?", "answer": "New verified codes will be listed with their reward, source, and check date; expired codes will remain in a separate archive." }
+      {
+        "question": "Are there any working Steal an Egg codes?",
+        "answer": "No verified working codes were found for the current experience as of August 26, 2026."
+      },
+      {
+        "question": "Where do I redeem Steal an Egg codes?",
+        "answer": "The current game interface does not include a confirmed code-redemption field. Do not trust unverified strings posted as codes."
+      },
+      {
+        "question": "How is this page verified?",
+        "answer": "We compare the current Roblox experience, recent reputable reporting, and visible in-game redemption options before changing code status."
+      },
+      {
+        "question": "What happens if codes are added later?",
+        "answer": "New verified codes will be listed with their reward, source, and check date; expired codes will remain in a separate archive."
+      }
     ],
     "possiblyOutdated": "This guide was last checked on",
     "outdatedNote": "— Steal an Egg changes quickly, so confirm update-sensitive values in the live game.",
@@ -74,7 +100,11 @@
     "sponsorButton": "Support us",
     "notFoundSearchHint": "Try searching the wiki instead.",
     "notFoundPopular": "Popular pages",
-    "galleryLabels": { "close": "Close", "prev": "Previous image", "next": "Next image" },
+    "galleryLabels": {
+      "close": "Close",
+      "prev": "Previous image",
+      "next": "Next image"
+    },
     "quickAnswer": "Quick Answer",
     "skipToContent": "Skip to content",
     "tapToCopy": "Tap to copy",
@@ -92,95 +122,304 @@
     "paginationAria": "Article pagination"
   },
   "overview": {
-    "codes": { "overviewTitle": "Steal an Egg Codes", "overviewDescription": "Verified Steal an Egg code status, redemption availability, scam warnings, and a dated active and expired code archive." },
-    "wiki": { "overviewTitle": "Steal an Egg Wiki", "overviewDescription": "Core game systems, terminology, progression loops, source standards, and reference pages for the current Roblox experience." },
-    "eggs": { "overviewTitle": "Steal an Egg Eggs", "overviewDescription": "Egg types, nest routes, rarity clues, hatch decisions, limited eggs, and practical advice for safer steals." },
-    "pets": { "overviewTitle": "Steal an Egg Pets", "overviewDescription": "Community-tracked pets, rarity tiers, base income comparisons, index strategy, and best-pet checks by biome." },
-    "mutations": { "overviewTitle": "Steal an Egg Mutations", "overviewDescription": "Mutation multipliers, natural egg variants, Sakura Incubator outcomes, and income calculation guidance." },
-    "biomes": { "overviewTitle": "Steal an Egg Biomes", "overviewDescription": "Every current biome in progression order, including reported speed gates, guardian risk, and high-value targets." },
-    "guides": { "overviewTitle": "Steal an Egg Guides", "overviewDescription": "Beginner routes, stealing strategy, speed training, base upgrades, pet income, and endgame progression guides." },
-    "tools": { "overviewTitle": "Steal an Egg Tools", "overviewDescription": "Free calculators for pet income, speed goals, mutation comparisons, biome readiness, and timed egg-run planning." },
-    "updates": { "overviewTitle": "Steal an Egg Updates", "overviewDescription": "Dated patch tracking, new biome coverage, event checks, changed values, and a transparent correction log." }
+    "codes": {
+      "overviewTitle": "Steal an Egg Codes",
+      "overviewDescription": "Verified Steal an Egg code status, redemption availability, scam warnings, and a dated active and expired code archive."
+    },
+    "wiki": {
+      "overviewTitle": "Steal an Egg Wiki",
+      "overviewDescription": "Core game systems, terminology, progression loops, source standards, and reference pages for the current Roblox experience."
+    },
+    "eggs": {
+      "overviewTitle": "Steal an Egg Eggs",
+      "overviewDescription": "Egg types, nest routes, rarity clues, hatch decisions, limited eggs, and practical advice for safer steals."
+    },
+    "pets": {
+      "overviewTitle": "Steal an Egg Pets",
+      "overviewDescription": "Community-tracked pets, rarity tiers, base income comparisons, index strategy, and best-pet checks by biome."
+    },
+    "mutations": {
+      "overviewTitle": "Steal an Egg Mutations",
+      "overviewDescription": "Mutation multipliers, natural egg variants, Sakura Incubator outcomes, and income calculation guidance."
+    },
+    "biomes": {
+      "overviewTitle": "Steal an Egg Biomes",
+      "overviewDescription": "Every current biome in progression order, including reported speed gates, guardian risk, and high-value targets."
+    },
+    "guides": {
+      "overviewTitle": "Steal an Egg Guides",
+      "overviewDescription": "Beginner routes, stealing strategy, speed training, base upgrades, pet income, and endgame progression guides."
+    },
+    "tools": {
+      "overviewTitle": "Steal an Egg Tools",
+      "overviewDescription": "Free calculators for pet income, speed goals, mutation comparisons, biome readiness, and timed egg-run planning."
+    },
+    "updates": {
+      "overviewTitle": "Steal an Egg Updates",
+      "overviewDescription": "Dated patch tracking, new biome coverage, event checks, changed values, and a transparent correction log."
+    }
   },
   "home": {
     "meta": {
-      "title": "Steal an Egg Wiki: Codes, Pets, Eggs, Biomes & Tools",
-      "description": "Current Steal an Egg wiki with verified codes status, pets, eggs, mutations, all biomes, guides, calculators, and update tracking."
+      "title": "Steal an Egg Wiki: Codes, Tier List, Pets & Tools",
+      "description": "Current Steal an Egg wiki with verified codes, transparent pet rankings, eggs, mutations, biomes, guides, calculators, and update tracking."
     },
     "hero": {
-      "badge": "Independent English Wiki · Checked August 26, 2026",
+      "badge": "Independent English Wiki · Checked August 31, 2026",
       "title": "Steal an Egg Wiki",
-      "description": "Find the right egg, compare pets and mutations, plan your next biome, and use calculators built around values you can verify in your own game.",
+      "description": "Find the right egg, rank pets with evidence, compare mutations, plan your next biome, and use calculators built around values you can verify in your own game.",
       "ctaPrimary": "Play on Roblox",
       "ctaSecondary": "Browse Guides",
       "videoId": ""
     },
-    "updates": { "title": "Latest Checks and Updates" },
+    "updates": {
+      "title": "Latest Checks and Updates"
+    },
     "start": {
       "badge": "Start Here",
       "title": "Choose Your Next Goal",
       "cards": [
-        { "number": "1", "title": "Beginner Guide", "description": "Learn the steal, escape, hatch, earn, upgrade, and speed-training loop without wasting your first income.", "icon": "lucide:route", "href": "/guides/beginner-guide" },
-        { "number": "2", "title": "Codes Status", "description": "Check the current verified code and redemption status before trying strings from social posts or videos.", "icon": "lucide:gift", "href": "/codes/current-codes" },
-        { "number": "3", "title": "Pets and Eggs", "description": "Use separate egg and pet references to decide what to steal, hatch, keep, replace, or revisit.", "icon": "lucide:egg", "href": "/pets/all-pets" },
-        { "number": "4", "title": "Calculators", "description": "Estimate pet income, mutation gains, treadmill time, biome readiness, and egg-run timing.", "icon": "lucide:calculator", "href": "/tools/calculators" }
+        {
+          "number": "1",
+          "title": "Beginner Guide",
+          "description": "Learn the steal, escape, hatch, earn, upgrade, and speed-training loop without wasting your first income.",
+          "icon": "lucide:route",
+          "href": "/guides/beginner-guide"
+        },
+        {
+          "number": "2",
+          "title": "Codes Status",
+          "description": "Check the current verified code and redemption status before trying strings from social posts or videos.",
+          "icon": "lucide:gift",
+          "href": "/codes/current-codes"
+        },
+        {
+          "number": "3",
+          "title": "Pets and Eggs",
+          "description": "Use separate egg and pet references to decide what to steal, hatch, keep, replace, or revisit.",
+          "icon": "lucide:egg",
+          "href": "/pets/all-pets"
+        },
+        {
+          "number": "4",
+          "title": "Calculators",
+          "description": "Estimate pet income, mutation gains, treadmill time, biome readiness, and egg-run timing.",
+          "icon": "lucide:calculator",
+          "href": "/tools/calculators"
+        }
       ]
     },
     "popular": {
       "badge": "Popular Now",
       "title": "High-Intent Player Pages",
       "quickLinks": [
-        { "label": "All Pets and Top Income Targets", "href": "/pets/all-pets" },
-        { "label": "All Mutations and Multipliers", "href": "/mutations/all-mutations" },
-        { "label": "All Biomes in Progression Order", "href": "/biomes/all-biomes" },
-        { "label": "Cherry Blossom Update", "href": "/updates/cherry-blossom-update" }
+        {
+          "label": "Transparent Pet Tier List",
+          "href": "/pets/tier-list"
+        },
+        {
+          "label": "Passive Income Calculator",
+          "href": "/tools/income-calculator"
+        },
+        {
+          "label": "Speed Training Planner",
+          "href": "/tools/speed-calculator"
+        },
+        {
+          "label": "All Biomes in Progression Order",
+          "href": "/biomes/all-biomes"
+        },
+        {
+          "label": "Cherry Blossom Update",
+          "href": "/updates/cherry-blossom-update"
+        }
       ]
     },
     "explore": {
       "title": "Explore the Complete Wiki",
       "description": "Focused content clusters make every answer easy to find, update, and verify.",
       "modules": [
-        { "order": 1, "name": "Codes", "description": "No fake rewards: only verified code and redemption status with check dates.", "href": "/codes/current-codes", "displayType": "badge-list", "highlights": [
-          { "label": "Active codes", "detail": "None verified on August 26, 2026", "badge": "Checked" },
-          { "label": "Redeem menu", "detail": "No confirmed code-entry field", "badge": "Unavailable" },
-          { "label": "Expired archive", "detail": "No verified expired codes", "badge": "Empty" }
-        ] },
-        { "order": 2, "name": "Eggs, Pets, and Mutations", "description": "Separate references for what you steal, what hatches, and what multiplies income.", "href": "/eggs/egg-guide", "displayType": "labeled-cards", "highlights": [
-          { "label": "Eggs", "detail": "Nest routes, size clues, limited eggs, and safer return planning" },
-          { "label": "Pets", "detail": "Biome, rarity, base income, and index progression" },
-          { "label": "Mutations", "detail": "Silver through Spirit Bloom with clearly labeled sources" }
-        ] },
-        { "order": 3, "name": "Biome Progression", "description": "Follow the map from Forest to Cherry Blossom and plan a speed safety margin.", "href": "/biomes/all-biomes", "displayType": "steps", "highlights": [
-          { "label": "1", "detail": "Build reliable income in Forest and Lake" },
-          { "label": "2", "detail": "Train above the reported minimum before carrying larger eggs" },
-          { "label": "3", "detail": "Re-check thresholds after every update" },
-          { "label": "4", "detail": "Use late-game events and the Sakura Incubator carefully" }
-        ] },
-        { "order": 4, "name": "Player Tools", "description": "Calculators use your own live-game values so the result survives balance changes.", "href": "/tools/calculators", "displayType": "labeled-cards", "highlights": [
-          { "label": "Income", "detail": "Base rate × mutation × size × copies × time" },
-          { "label": "Speed", "detail": "Current speed, target speed, and measured gain rate" },
-          { "label": "Readiness", "detail": "Threshold, current speed, and safety margin" }
-        ] },
-        { "order": 5, "name": "Update Tracker", "description": "Dated coverage for new areas, events, codes, pets, and corrected values.", "href": "/updates", "displayType": "timeline", "highlights": [
-          { "label": "Aug 26", "detail": "Codes and current-game identity rechecked", "badge": "Latest" },
-          { "label": "Aug 24", "detail": "Cherry Blossom, Great Bloom, and Sakura Incubator tracked" },
-          { "label": "Aug 2026", "detail": "Conflicting community pet counts preserved as a known data gap" }
-        ] },
-        { "order": 6, "name": "Wiki Standards", "description": "Official facts, community observations, and estimates are labeled separately.", "href": "/wiki/source-policy", "displayType": "labeled-cards", "highlights": [
-          { "label": "Official", "detail": "Roblox experience identity and developer-published wording" },
-          { "label": "Community", "detail": "Cross-checked pet, biome, event, and multiplier observations" },
-          { "label": "Calculated", "detail": "Transparent formulas using player-supplied inputs" }
-        ] }
+        {
+          "order": 1,
+          "name": "Codes",
+          "description": "No fake rewards: only verified code and redemption status with check dates.",
+          "href": "/codes/current-codes",
+          "displayType": "badge-list",
+          "highlights": [
+            {
+              "label": "Active codes",
+              "detail": "None verified on August 26, 2026",
+              "badge": "Checked"
+            },
+            {
+              "label": "Redeem menu",
+              "detail": "No confirmed code-entry field",
+              "badge": "Unavailable"
+            },
+            {
+              "label": "Expired archive",
+              "detail": "No verified expired codes",
+              "badge": "Empty"
+            }
+          ]
+        },
+        {
+          "order": 2,
+          "name": "Eggs, Pets, and Mutations",
+          "description": "Separate references for what you steal, what hatches, and what multiplies income.",
+          "href": "/eggs/egg-guide",
+          "displayType": "labeled-cards",
+          "highlights": [
+            {
+              "label": "Eggs",
+              "detail": "Nest routes, size clues, limited eggs, and safer return planning"
+            },
+            {
+              "label": "Pets",
+              "detail": "Biome, rarity, base income, and index progression"
+            },
+            {
+              "label": "Mutations",
+              "detail": "Silver through Spirit Bloom with clearly labeled sources"
+            }
+          ]
+        },
+        {
+          "order": 3,
+          "name": "Biome Progression",
+          "description": "Follow the map from Forest to Cherry Blossom and plan a speed safety margin.",
+          "href": "/biomes/all-biomes",
+          "displayType": "steps",
+          "highlights": [
+            {
+              "label": "1",
+              "detail": "Build reliable income in Forest and Lake"
+            },
+            {
+              "label": "2",
+              "detail": "Train above the reported minimum before carrying larger eggs"
+            },
+            {
+              "label": "3",
+              "detail": "Re-check thresholds after every update"
+            },
+            {
+              "label": "4",
+              "detail": "Use late-game events and the Sakura Incubator carefully"
+            }
+          ]
+        },
+        {
+          "order": 4,
+          "name": "Player Tools",
+          "description": "Use dedicated income and speed planners or the full calculator suite with live values from your own base.",
+          "href": "/tools/calculators",
+          "displayType": "labeled-cards",
+          "highlights": [
+            {
+              "label": "Income",
+              "detail": "Base rate, mutation, size, copies, and session length"
+            },
+            {
+              "label": "Speed",
+              "detail": "Measured gain, target speed, and minutes per day"
+            },
+            {
+              "label": "All tools",
+              "detail": "Runs, mutations, and biome readiness"
+            }
+          ]
+        },
+        {
+          "order": 5,
+          "name": "Update Tracker",
+          "description": "Dated coverage for new areas, events, codes, pets, and corrected values.",
+          "href": "/updates",
+          "displayType": "timeline",
+          "highlights": [
+            {
+              "label": "Aug 26",
+              "detail": "Codes and current-game identity rechecked",
+              "badge": "Latest"
+            },
+            {
+              "label": "Aug 24",
+              "detail": "Cherry Blossom, Great Bloom, and Sakura Incubator tracked"
+            },
+            {
+              "label": "Aug 2026",
+              "detail": "Conflicting community pet counts preserved as a known data gap"
+            }
+          ]
+        },
+        {
+          "order": 6,
+          "name": "Wiki Standards",
+          "description": "Official facts, community observations, and estimates are labeled separately.",
+          "href": "/wiki/source-policy",
+          "displayType": "labeled-cards",
+          "highlights": [
+            {
+              "label": "Official",
+              "detail": "Roblox experience identity and developer-published wording"
+            },
+            {
+              "label": "Community",
+              "detail": "Cross-checked pet, biome, event, and multiplier observations"
+            },
+            {
+              "label": "Calculated",
+              "detail": "Transparent formulas using player-supplied inputs"
+            }
+          ]
+        },
+        {
+          "order": 7,
+          "name": "Trust and Purchases",
+          "description": "Verification checklists for badges, gamepasses, sources, and purchase decisions before spending Robux.",
+          "href": "/wiki/gamepasses",
+          "displayType": "labeled-cards",
+          "highlights": [
+            {
+              "label": "Gamepasses",
+              "detail": "Official source, live effect, and value checklist"
+            },
+            {
+              "label": "Badges",
+              "detail": "Repeatable unlock conditions and dated checks"
+            },
+            {
+              "label": "Sources",
+              "detail": "Official, community, and calculated claims"
+            }
+          ]
+        }
       ]
     },
     "faq": {
       "title": "Steal an Egg FAQ",
       "description": "Quick answers about the current Roblox experience and this independent wiki.",
       "items": [
-        { "question": "What is Steal an Egg?", "answer": "Steal an Egg is a Roblox collection game where players steal guarded eggs, escape to their base, hatch pets that earn money, upgrade their base, and train speed to reach harder biomes." },
-        { "question": "Are there working Steal an Egg codes?", "answer": "No verified working codes or confirmed redemption field were found as of August 26, 2026." },
-        { "question": "How many biomes and pets are there?", "answer": "Recent community sources disagree because the game is updating quickly. This wiki treats the in-game Index as the final authority and timestamps every tracked count." },
-        { "question": "Is this the official Steal an Egg wiki?", "answer": "No. This is an independent fan-made English resource. Roblox and the game developer remain the official sources for support, purchases, moderation, and account issues." }
+        {
+          "question": "What is Steal an Egg?",
+          "answer": "Steal an Egg is a Roblox collection game where players steal guarded eggs, escape to their base, hatch pets that earn money, upgrade their base, and train speed to reach harder biomes."
+        },
+        {
+          "question": "Are there working Steal an Egg codes?",
+          "answer": "No verified working codes or confirmed redemption field were found as of August 26, 2026."
+        },
+        {
+          "question": "How many biomes and pets are there?",
+          "answer": "Recent community sources disagree because the game is updating quickly. This wiki treats the in-game Index as the final authority and timestamps every tracked count."
+        },
+        {
+          "question": "Is this the official Steal an Egg wiki?",
+          "answer": "No. This is an independent fan-made English resource. Roblox and the game developer remain the official sources for support, purchases, moderation, and account issues."
+        },
+        {
+          "question": "Is there a real Steal an Egg pet tier list?",
+          "answer": "There is no reliable universal tier list while the game changes quickly. This wiki provides a transparent personal-ranking framework based on live income, route time, risk, and evidence."
+        }
       ]
     },
     "closingCta": {

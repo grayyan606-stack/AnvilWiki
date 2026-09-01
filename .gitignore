@@ -36,3 +36,6 @@ pnpm-debug.log*
 
 # Superpowers
 .superpowers/
+
+# local pnpm store
+.pnpm-store/

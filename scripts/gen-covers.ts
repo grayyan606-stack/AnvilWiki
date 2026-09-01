@@ -369,6 +369,7 @@ async function main(): Promise<void> {
 
     console.log(`▸ ${file} — ${article.title}`);
     const png = await renderCover(article, brandHex, brandDeepHex);
+    mkdirSync(dirname(join(OUT_DIR, file)), { recursive: true });
     writeFileSync(join(OUT_DIR, file), png);
     manifest.entries[file] = key;
     generated++;

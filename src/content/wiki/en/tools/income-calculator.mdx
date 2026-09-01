@@ -1,0 +1,44 @@
+---
+title: 'Steal an Egg Income Calculator: Passive and Offline Planning'
+description: 'Project Steal an Egg pet income with base rate, mutation, size, copies, and hours using a transparent offline income calculator.'
+category: 'tools'
+image: '../../../../assets/covers/en/tools/income-calculator.png'
+date: 2026-08-31
+lastModified: 2026-08-31
+tags: ['tools', 'calculator', 'income', 'pets']
+gameVersion: 'Aug 26 check'
+summary: 'Use this Steal an Egg income calculator to project passive income from one pet contribution rate, mutation, size, copies, and your chosen session length. The formula is transparent, works in your browser, and avoids hidden rate assumptions that cannot be verified in the live game.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import IncomeCalculator from '~/components/article/IncomeCalculator.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Calculated" checked="August 31, 2026" note="The calculator uses only values you enter. It does not infer pet rates, offline caps, or gamepass bonuses." />
+
+## How do you calculate Steal an Egg pet income?
+
+Start with the live income contribution shown by one pet, then multiply it by the visible multipliers that apply in your base:
+
+`contribution = base income × mutation multiplier × size multiplier × copies`
+
+If the game displays a combined rate for your base instead of a per-pet rate, use that value as the starting number and set the remaining multipliers to `1`.
+
+<IncomeCalculator />
+
+## Which values should you use?
+
+| Input | Best source |
+| --- | --- |
+| Base income | The current pet card or income display in your own base. |
+| Mutation multiplier | A confirmed in-game label, not a chat screenshot. |
+| Size multiplier | The current size state after hatching or feeding. |
+| Copies | The number of the same pet currently contributing. |
+| Hours | Your real planned play or away time. |
+
+<Callout type="warn" title="Offline behavior can change">Do not assume an offline multiplier, cap, or priority rule unless you can see it in the game interface. Update-sensitive mechanics can change without notice.</Callout>
+
+## When is this more useful than a fixed table?
+
+This calculator survives balance changes better than a static table because it separates the live value from the planning math. Re-enter your current numbers after every update, then compare two setups with the [full calculator suite](/tools/calculators) or check related pets in the [all pets index](/pets/all-pets).

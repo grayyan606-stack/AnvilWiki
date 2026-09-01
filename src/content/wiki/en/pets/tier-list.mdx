@@ -1,0 +1,49 @@
+---
+title: 'Steal an Egg Tier List: Transparent Ranking Framework'
+description: 'A source-bounded Steal an Egg pet tier-list framework with reproducible scoring, evidence labels, and no invented universal rankings.'
+category: 'pets'
+image: '../../../../assets/covers/en/pets/tier-list.png'
+date: 2026-08-31
+lastModified: 2026-08-31
+tags: ['pets', 'best-pets', 'ranking', 'tools']
+gameVersion: 'Aug 26 check'
+summary: 'This Steal an Egg tier list page does not invent universal S-to-D pet ranks. It gives a transparent scoring framework based on live income, copies, route time, risk, and evidence. Use it to rank pets against your own server and goals, then update the results after every game patch.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Methodology" checked="August 31, 2026" note="This is a reusable ranking framework, not a fabricated leaderboard. Every tier is based on data you record from the live game." />
+
+## What is the best Steal an Egg pet tier list?
+
+No single universal tier list is safe to publish while the game updates quickly and sources disagree on current pet data. The honest answer is to rank pets for your base, route, and goals. Use this framework:
+
+| Tier | Meaning | Required evidence |
+| --- | --- | --- |
+| Personal S | Clearly beats your current best setup | 10+ logged samples, top income after route time and risk |
+| Personal A | Competitive but not decisive | Repeatedly near your best score |
+| Personal B | Useful as a filler or early option | Positive income, but not enough samples to rank higher |
+| Personal C | Not worth the route or base slot right now | Consistently below the pets above |
+| Watch | Not enough verified data | Conflicting source or fewer than three samples |
+
+## How do you score a pet?
+
+Start with:
+
+`planning score = projected passive income + income per successful run − route and risk penalty`
+
+For the income half, use the [income calculator](/tools/income-calculator). For route pressure, use the [run planner](/tools/calculators#run-calculator). Do not compare two pets unless you use the same route, interval, and safety margin.
+
+<Callout type="warn" title="Do not trust anonymous tier screenshots">A tier image without a check date, sample size, route, and server condition cannot be verified. Treat it as an opinion, not data.</Callout>
+
+## What should you update after each patch?
+
+- Pet names, rarity, and copies you own.
+- Base income and mutation multipliers.
+- Egg spawn interval and route time.
+- Biome pressure and carrying speed.
+- Any event or incubator modifier.
+
+Then review the [best pets guide](/pets/best-pets) and the [all pets index](/pets/all-pets) to see whether your ranking still matches the current evidence.

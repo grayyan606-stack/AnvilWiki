@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'income-calculator' } = Astro.props;
+---
+
+<section id={id} class="not-prose my-8 scroll-mt-20 rounded-xl border bg-card p-5" data-income-calculator>
+  <header class="flex gap-3">
+    <Icon name="lucide:coins" class="mt-1 h-5 w-5 text-nav" />
+    <div>
+      <h2 class="text-xl font-bold">Offline &amp; Passive Income Calculator</h2>
+      <p class="text-sm text-muted-foreground">Enter a live contribution rate from one pet, then project passive income for your own session length.</p>
+    </div>
+  </header>
+
+  <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+    <label class="text-sm font-medium">Base income / second<input data-field="base" type="number" min="0" step="any" value="100" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Mutation multiplier<input data-field="mutation" type="number" min="0" step="0.01" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Size multiplier<input data-field="size" type="number" min="0" step="0.01" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Copies<input data-field="copies" type="number" min="1" step="1" value="1" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Hours to project<input data-field="hours" type="number" min="0" step="0.25" value="8" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+  </div>
+
+  <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  <p class="mt-2 text-xs text-muted-foreground">Formula: base × mutation × size × copies. This is a planning estimate, not a guarantee of live game behavior.</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-income-calculator]').forEach((root) => {
+    const value = (field: string) => Number(root.querySelector<HTMLInputElement>(`[data-field="${field}"]`)?.value || 0);
+    const output = root.querySelector<HTMLOutputElement>('[data-result]');
+    const compact = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 2 });
+    const update = () => {
+      if (!output) return;
+      const perSecond = Math.max(0, value('base')) * Math.max(0, value('mutation')) * Math.max(0, value('size')) * Math.max(1, Math.floor(value('copies')));
+      const projected = perSecond * Math.max(0, value('hours')) * 3600;
+      output.textContent = `${compact.format(perSecond)}/s · ${compact.format(perSecond * 60)}/min · ${compact.format(perSecond * 3600)}/hour · ${compact.format(projected)} in ${value('hours')}h`;
+    };
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', update));
+    update();
+  });
+</script>

@@ -1,0 +1,42 @@
+---
+title: 'Steal an Egg Speed Calculator: Training Time and Daily Plan'
+description: 'Estimate Steal an Egg treadmill training time from current speed, target speed, measured gain, and your realistic minutes per day.'
+category: 'tools'
+image: '../../../../assets/covers/en/tools/speed-calculator.png'
+date: 2026-08-31
+lastModified: 2026-08-31
+tags: ['tools', 'calculator', 'speed', 'treadmill']
+gameVersion: 'Aug 26 check'
+summary: 'This Steal an Egg speed calculator estimates total treadmill training time and a realistic daily schedule from your current speed, target, measured gain, and minutes per day. It uses your own sample, not a stale universal threshold table.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import SpeedCalculator from '~/components/article/SpeedCalculator.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel level="Calculated" checked="August 31, 2026" note="The planner does not store biome thresholds. It calculates from the speed values and gain rate you enter." />
+
+## How long does Steal an Egg speed training take?
+
+Use the basic formula:
+
+`total time = (target speed − current speed) ÷ measured gain per second`
+
+Sample your treadmill gain for at least 30 seconds, then repeat once. Use the lower or median gain rate for planning.
+
+<SpeedCalculator />
+
+## How do you build a realistic daily plan?
+
+1. Record your current speed.
+2. Choose the next biome target or a personal safety target.
+3. Measure gain for a fixed interval.
+4. Enter the number of minutes you can actually train each day.
+5. Compare the estimate with your route goals.
+
+<Callout type="info" title="Add a safety margin">A biome entry minimum is not always a comfortable carrying speed. Use the [Biome Readiness Checker](/tools/calculators#biome-calculator) before you carry a larger egg through a harder area.</Callout>
+
+## Why not publish one fixed speed table?
+
+The game updates quickly, and community tables can disagree. This page keeps the calculation honest by using your live inputs. For threshold context and known conflicts, read [all biomes](/biomes/all-biomes) and the [speed training guide](/guides/speed-training).

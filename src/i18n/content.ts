@@ -59,14 +59,14 @@ export async function getEntryWithFallback(
   const id = `${locale}/${category}/${slug}`;
 
   // 1. Try the requested locale first.
-  const requested = await getEntry('wiki', id);
+  const requested = await getEntry<"wiki", string>("wiki", id);
   if (requested && isPublished(requested)) {
     return { entry: requested, servedLocale: locale, isFallback: false };
   }
 
   // 2. Fall back to English (default locale).
   if (locale !== defaultLocale) {
-    const fallback = await getEntry('wiki', `${defaultLocale}/${category}/${slug}`);
+    const fallback = await getEntry<"wiki", string>("wiki", `${defaultLocale}/${category}/${slug}`);
     if (fallback && isPublished(fallback)) {
       return { entry: fallback, servedLocale: defaultLocale, isFallback: true };
     }

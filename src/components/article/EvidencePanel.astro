@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 interface Props {
-  level: 'Official' | 'Cross-checked' | 'Community tracked' | 'Calculated' | 'Conflicting reports';
+  level: 'Official' | 'Cross-checked' | 'Community tracked' | 'Calculated' | 'Conflicting reports' | 'Methodology';
   checked: string;
   note: string;
 }
@@ -14,6 +14,7 @@ const icons: Record<Props['level'], string> = {
   'Community tracked': 'lucide:users',
   Calculated: 'lucide:calculator',
   'Conflicting reports': 'lucide:triangle-alert',
+  Methodology: 'lucide:list-checks',
 };
 ---
 

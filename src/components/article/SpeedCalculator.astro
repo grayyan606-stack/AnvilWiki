@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'speed-calculator' } = Astro.props;
+---
+
+<section id={id} class="not-prose my-8 scroll-mt-20 rounded-xl border bg-card p-5" data-speed-calculator>
+  <header class="flex gap-3">
+    <Icon name="lucide:gauge" class="mt-1 h-5 w-5 text-nav" />
+    <div>
+      <h2 class="text-xl font-bold">Daily Speed Training Planner</h2>
+      <p class="text-sm text-muted-foreground">Convert a measured gain rate into total time and realistic daily sessions.</p>
+    </div>
+  </header>
+
+  <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <label class="text-sm font-medium">Current speed<input data-field="current" type="number" min="0" step="any" value="10000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Target speed<input data-field="target" type="number" min="0" step="any" value="100000" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Measured gain / second<input data-field="gain" type="number" min="0" step="any" value="100" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+    <label class="text-sm font-medium">Minutes / day<input data-field="minutes" type="number" min="0" step="5" value="30" class="mt-1 w-full rounded-md border bg-background px-3 py-2" /></label>
+  </div>
+
+  <output data-result class="mt-4 block rounded-lg bg-muted p-4 font-semibold" aria-live="polite"></output>
+  <p class="mt-2 text-xs text-muted-foreground">Formula: (target − current) ÷ measured gain. Sample the gain rate for at least 30 seconds before trusting the result.</p>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-speed-calculator]').forEach((root) => {
+    const value = (field: string) => Number(root.querySelector<HTMLInputElement>(`[data-field="${field}"]`)?.value || 0);
+    const output = root.querySelector<HTMLOutputElement>('[data-result]');
+    const compact = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 2 });
+    const duration = (seconds: number) => {
+      if (!Number.isFinite(seconds) || seconds < 0) return 'Enter valid values';
+      const days = Math.floor(seconds / 86400);
+      const hours = Math.floor((seconds % 86400) / 3600);
+      const minutes = Math.ceil((seconds % 3600) / 60);
+      return [days && `${days}d`, hours && `${hours}h`, minutes && `${minutes}m`].filter(Boolean).join(' ') || 'less than 1 minute';
+    };
+    const update = () => {
+      if (!output) return;
+      const gap = Math.max(0, value('target') - value('current'));
+      const gain = value('gain');
+      const minutes = value('minutes');
+      if (gap === 0) output.textContent = 'Target reached.';
+      else if (gain <= 0) output.textContent = 'Enter a measured gain above zero.';
+      else {
+        const seconds = gap / gain;
+        const dayText = minutes > 0 ? ` · about ${(seconds / (minutes * 60)).toFixed(1)} calendar days at ${minutes} min/day` : '';
+        output.textContent = `${compact.format(gap)} speed remaining · about ${duration(seconds)}${dayText}`;
+      }
+    };
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', update));
+    update();
+  });
+</script>
