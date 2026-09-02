@@ -60,7 +60,7 @@ export const site: SiteConfig = {
   shortName: 'Egg Wiki',
   description:
     'Independent Steal an Egg wiki with verified codes status, egg and pet indexes, mutations, biomes, guides, calculators, and update tracking.',
-  domain: 'steal-an-egg-2w8.pages.dev',
+  domain: 'steal-an-egg-3ny.pages.dev',
   tagline: 'Steal smarter. Hatch better. Progress faster.',
   legalNotice:
     'Steal an Egg Wiki is an independent fan-made resource. It is not affiliated with Roblox or the game developer.',
