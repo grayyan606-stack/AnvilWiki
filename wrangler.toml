@@ -29,13 +29,13 @@
 #
 # Reference: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
 
-name = "steal-an-egg-wiki"
+name = "steal-an-egg-2w8"
 compatibility_date = "2026-08-11"
 pages_build_output_dir = "dist"
 
 [vars]
 # Site (must include https:// protocol — Astro validates this as a URL)
-SITE_URL = "https://steal-an-egg-wiki.pages.dev"
+SITE_URL = "https://steal-an-egg-2w8.pages.dev"
 # Comments stay disabled until this fork enables its own GitHub Discussions category.
 PUBLIC_GISCUS_REPO = ""
 PUBLIC_GISCUS_REPO_ID = ""
