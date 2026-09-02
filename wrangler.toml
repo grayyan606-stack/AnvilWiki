@@ -46,7 +46,7 @@ PUBLIC_GISCUS_MAPPING = "pathname"
 PUBLIC_SPONSOR_URL = ""
 PUBLIC_SPONSOR_IMAGE_URL = ""
 # Cloudflare Web Analytics beacon token (empty = disabled)
-PUBLIC_CF_BEACON_TOKEN = ""
+PUBLIC_CF_BEACON_TOKEN = "2a48077f1fa04ab9900b98c1419fdfe4"
 #
 # ─── Optional slots (empty = disabled) ─────────────────────────────────
 # Route (A) users: fill them HERE, not in the dashboard — the dashboard UI
