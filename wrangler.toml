@@ -35,7 +35,7 @@ pages_build_output_dir = "dist"
 
 [vars]
 # Site (must include https:// protocol — Astro validates this as a URL)
-SITE_URL = "https://steal-an-egg-3ny.pages.dev"
+SITE_URL = "https://steal-an-egg-3ny.wiki"
 # Comments stay disabled until this fork enables its own GitHub Discussions category.
 PUBLIC_GISCUS_REPO = ""
 PUBLIC_GISCUS_REPO_ID = ""

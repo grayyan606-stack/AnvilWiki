@@ -262,9 +262,16 @@ export function videoObjectJsonLd(opts: {
   };
 }
 
-/** Build the <title> string with consistent suffix. */
+/** Build the <title> string with consistent suffix.
+ *
+ * Google truncates SERP titles at roughly 60 characters. When appending the
+ * site-name suffix would exceed that budget, drop the suffix instead of
+ * truncating keywords — site.name already carries the "Wiki" branding and the
+ * game name, so a bare article title stays keyword-complete on its own.
+ */
 export function pageTitle(title: string): string {
-  return `${title} — ${site.name}`;
+  const withSuffix = `${title} — ${site.name}`;
+  return withSuffix.length <= 60 ? withSuffix : title;
 }
 
 /** VideoGame JSON-LD — injected on the homepage for game entity recognition. */

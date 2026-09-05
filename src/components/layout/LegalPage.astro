@@ -16,7 +16,7 @@ interface Props {
   /** ISO date string for "last updated". */
   lastUpdated?: string;
 }
-const { locale, title, description = `${title} for ${site.name}.`, lastUpdated } = Astro.props;
+const { locale, title, description = `${title} — ${site.name} is an independent ${site.game.name} fan wiki with guides, codes, pets, eggs, and game data.`, lastUpdated } = Astro.props;
 ---
 
 <LocaleLayout locale={locale} title={title} description={description}>

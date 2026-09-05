@@ -80,7 +80,8 @@ const ogLocaleMap = OG_LOCALE_MAP as Record<string, string>;
 const ogLocale = ogLocaleMap[mainLocale] ?? mainLocale;
 
 const suffix = titleSuffix !== undefined ? titleSuffix : site.name;
-const fullTitle = suffix && !title.includes(suffix) ? `${title} — ${suffix}` : title;
+const composedTitle = `${title} — ${suffix}`;// SERP titles truncate around ~60 chars — prefer the suffix only when it fits.
+const fullTitle = !suffix || title.includes(suffix) ? title : composedTitle.length <= 60 ? composedTitle : title;
 const orgJsonLd = organizationJsonLd();
 
 // Strip ANY known locale prefix (built from routing.ts so new locales keep
