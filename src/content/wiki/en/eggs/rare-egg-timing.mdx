@@ -4,7 +4,7 @@ description: 'Plan rare egg checks with a measured spawn interval, round-trip ro
 category: 'eggs'
 image: '../../../../assets/covers/en/eggs/rare-egg-timing.png'
 date: 2026-08-26
-lastModified: 2026-08-26
+lastModified: 2026-09-06
 tags: ['eggs', 'timer', 'tools']
 summary: 'Rare egg timing should be treated as a measured server pattern, not a permanent universal constant. Record the interval you observe, time a full route, add an escape buffer, and use the run planner to decide whether one cycle can support another safe attempt.'
 author: 'Steal an Egg Wiki Editors'
@@ -23,7 +23,7 @@ import Callout from '~/components/mdx/Callout.astro';
 4. Add time for guardian avoidance, other players, and carrying the egg.
 5. Use the median instead of the fastest run.
 
-<Callout type="warn" title="Server behavior can differ">A reported five-minute cadence is a useful starting assumption, but events, updates, or server timing can make your observed interval different.</Callout>
+<Callout type="warn" title="Use a measured interval">Do not assume a universal five-minute cadence. Start with the interval you actually observe and keep event sessions, server changes, and uncertain observations separate.</Callout>
 
 ## What does the planner calculate?
 
@@ -32,3 +32,56 @@ The [Egg Run Planner](/tools/calculators#run-calculator) compares:
 `spawn interval − round trip − escape buffer`
 
 A positive result is spare time. A negative result means the planned route extends beyond the cycle and should be shortened, delayed, or attempted from a closer position.
+
+## Which event should start your timer?
+
+Choose one visible event that you can identify consistently. For example, you might record the moment an egg first becomes visible at a particular nest. Write down precisely what you observed. Seeing an egg after returning from another area is different from watching it appear while you remain nearby: in the first case, the actual appearance time is unknown.
+
+Do not mix egg appearance, player pickup, disappearance, and hatch completion in one interval list. They describe different events. A sequence measured from pickups cannot prove a spawn schedule unless you have separately shown that pickups trigger that schedule. This page does not establish such a trigger.
+
+If you miss an event, mark the observation as missed. An unusually long gap could contain two unseen cycles, a delay, or a genuinely different pattern. Dividing it into convenient shorter intervals would manufacture evidence. Keep the raw timestamp and explain why that sample is uncertain.
+
+## What should your timing notebook contain?
+
+Use a simple record that another player could understand without watching the whole session:
+
+| Field | What to record |
+| --- | --- |
+| Observation date | Date and time, including your time zone |
+| Session label | A private nickname for this session; no account credentials |
+| Location | The exact nest or landmark you watched |
+| Event definition | What counts as the beginning of a cycle |
+| Event timestamps | Each directly observed occurrence |
+| Interval | Time between consecutive comparable occurrences |
+| Uncertainty | Missed events, blocked visibility, departures, or distractions |
+| Conditions | Visible event state and relevant changes during the session |
+
+Three intervals are a useful initial check, not proof of a permanent schedule. To record three complete intervals, you normally need four consecutive event timestamps. When the numbers vary widely, collect more observations before planning a valuable trip around them. Do not hide that variation by reporting only the average.
+
+## How do you turn several observations into a planning interval?
+
+Sort comparable intervals and look at the middle value, or median, as a typical observation. Keep the shortest and longest alongside it. The range tells you how much scheduling uncertainty you have seen. A single central number cannot describe a highly irregular series.
+
+For a hypothetical set of intervals measuring 280, 300, and 340 seconds, the median is 300 seconds. That example teaches the calculation; it is not a claim about this game's spawn cadence. A route that fits comfortably inside 300 seconds might still overlap a shorter observed cycle. If missing the next opportunity is costly, inspect the shorter observed intervals as well and leave a margin.
+
+The appropriate margin depends on what you are trying to do. Returning before a predicted next appearance is different from arriving at a nest after an egg has appeared. Write the intended timing goal above your calculation so that a positive spare-time result is not mistaken for a guarantee of finding a rare egg.
+
+## How should you measure travel and the escape buffer?
+
+Time the whole planned journey from the same starting point to the same finishing point. Include selecting the egg and the return journey. A practice run without an egg is helpful for learning the path, but it is not interchangeable with a carrying run when movement or traffic differs.
+
+Use the escape buffer only for time that is not already included in the round-trip measurement. If your measured trip already contains the usual guardian delay, adding that same delay again overstates the required time. Conversely, a clean practice lap may need an extra allowance for the interruptions you expect during a real attempt.
+
+As a hypothetical calculation, a 300-second interval, a 210-second round trip, and a 45-second additional buffer leave 45 seconds. Increasing the trip to 270 seconds leaves a 15-second shortfall. The arithmetic explains why the second plan does not fit the assumed cycle. It says nothing about egg availability, other players, or whether the interval assumption is correct.
+
+## What does a runs-per-hour estimate leave out?
+
+A capacity estimate describes how many scheduled attempts might fit into an hour under the supplied assumptions. It does not predict successful steals, hatch contents, rare-pet odds, or income. Waiting at a nest can occupy time without producing a return, and a successful pickup can still end in a lost egg.
+
+For practical planning, record completed returns separately from possible attempts. If six opportunities fit on paper but only three returns finish during your session, use the observed result when deciding what to do next. The [route profitability field test](/guides/route-profitability-field-test) compares results over equal session lengths without treating every opportunity as a success.
+
+## When should you discard a timing plan?
+
+Start a new set of observations when you change servers, the event state changes, or the visible pattern stops matching your notes. Keep the old sheet as a dated record. It may explain a previous decision, but it should not silently supply current inputs.
+
+Stop timing when the observation itself becomes unreliable. If other players repeatedly block your view or you spend most of the session elsewhere, a precise-looking schedule is less useful than a flexible route. Choose a run you can repeat without depending on an exact appearance time, then revisit timing when you can observe it clearly.

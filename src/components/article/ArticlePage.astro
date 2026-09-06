@@ -60,6 +60,7 @@ const navItem = NAVIGATION_CONFIG.find((n) => n.key === entry.data.category);
 const parsed = parseEntryId(entry.id);
 const slug = parsed?.slug ?? '';
 const category = entry.data.category;
+const adsEnabled = entry.data.adsEnabled && !entry.data.draft && !entry.data.noindex;
 const categoryLabel = overview?.overviewTitle ?? nav[category] ?? category;
 
 const coverUrl = entry.data.image
@@ -154,6 +155,7 @@ const jsonLd = [
   alternates={alternates}
   availableLocales={availableLocales}
   article={true}
+  adsEnabled={adsEnabled}
   jsonLd={jsonLd}
   noindex={entry.data.noindex}
   ogImageWidth={entry.data.image?.width}
@@ -368,7 +370,7 @@ const jsonLd = [
     }
 
     {/* In-content ad before related articles */}
-    <InContentAd />
+    {adsEnabled && <InContentAd />}
 
     {/* Related */}
     {

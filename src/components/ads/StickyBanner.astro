@@ -10,8 +10,9 @@
  *
  * Includes a dismiss button (persisted in localStorage).
  *
- * Gated on PUBLIC_ADSENSE_CLIENT + PUBLIC_ADSENSE_SLOT_STICKY:
- * either empty = nothing rendered.
+ * Gated on the global ad switch, CMP readiness, page permission, client ID,
+ * and PUBLIC_ADSENSE_SLOT_STICKY. LocaleLayout mounts it only on eligible
+ * article pages.
  */
 import { Icon } from 'astro-icon/components';
 import AdSenseSlot from './AdSenseSlot.astro';
@@ -20,7 +21,7 @@ import { isLocale } from '~/i18n/routing';
 
 const client = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
 const slot = import.meta.env.PUBLIC_ADSENSE_SLOT_STICKY as string | undefined;
-const show = !!(client && slot);
+const show = import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true' && import.meta.env.PUBLIC_ADSENSE_CMP_READY === 'true' && !!(client && slot);
 const current = Astro.currentLocale;
 const sharedStrings =
   current && isLocale(current)

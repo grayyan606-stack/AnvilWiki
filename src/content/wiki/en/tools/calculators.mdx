@@ -4,7 +4,7 @@ description: 'Use five free Steal an Egg calculators for pet income, mutations, 
 category: 'tools'
 image: '../../../../assets/covers/en/tools/calculators.png'
 date: 2026-08-26
-lastModified: 2026-09-01
+lastModified: 2026-09-06
 tags: ['tools', 'calculator', 'income', 'speed']
 summary: 'These five calculators use values you can see or measure in your own game: base income, mutation and size multipliers, speed gain, route time, spawn interval, biome minimum, and safety margin. No hidden pet rates or permanent threshold assumptions are inserted by the site.'
 author: 'Steal an Egg Wiki Editors'
@@ -72,3 +72,52 @@ If you need the evidence rules behind these labels, read the [source and evidenc
   If the calculator and the game disagree, the live in-game value wins. Update-sensitive mechanics
   can change without notice.
 </Callout>
+
+## How should you move from one calculator to another?
+
+Start with the question you can act on. If you are deciding between two pets already in your base, use income or mutation comparison first. If you are deciding whether to reach a new biome, begin with speed and readiness. If you know the destination but not whether repeated attempts fit a spawn cycle, use the run planner. Feeding every available number into every tool creates more output without creating a clearer decision.
+
+A useful sequence for a new route is:
+
+1. Measure current speed and a repeatable training rate.
+2. Calculate the time to a visible gate and to a separate safety target.
+3. Practice and time a complete empty-handed route.
+4. Time the same route while carrying an ordinary egg.
+5. Enter the slower repeatable route time and a buffer in the run planner.
+6. Compare the resulting attempt capacity with a current-base income improvement.
+
+Each step answers a different question. The speed result does not prove route success, and the route result does not prove a particular egg will spawn.
+
+## How do you interpret calculator precision?
+
+The interface may display a precise number because arithmetic produces one. That precision does not make the inputs exact. A route measured by hand, a changing server, and a rounded in-game card all introduce uncertainty. Report a practical range when small differences could change the choice.
+
+For example, calculate once with the lowest repeatable gain rate and once with the highest repeatable rate. If both outcomes support the same decision, the choice is reasonably stable. If they point in different directions, collect another sample or choose the lower-risk action. Do not add decimal places merely because the result permits them.
+
+## A worked hypothetical comparison
+
+Suppose a player wants to compare staying on a known route with training for a new one. The player records current speed, a target shown in the live interface, and two training samples. Separately, the player times five complete returns on the known route and notes one failed attempt. These values are hypothetical inputs for teaching the workflow; they are not claims about a biome or spawn rate.
+
+The player first uses the speed tool to estimate productive training time. Next, the route tool uses a median full-loop time rather than the quickest run. Finally, the income tool compares the current base with the candidate improvement. The decision can now be stated as a tradeoff: a known income improvement today versus a measured training investment that may open another test. No universal tier label is required.
+
+## How should you handle an impossible or surprising result?
+
+Check units first. A per-second rate entered as a per-minute rate changes the result by a factor of 60. A percent entered where the tool expects a multiplier also produces a large error. Check whether the target is below the current value, whether a time field is zero, and whether a displayed total already contains a modifier.
+
+Then reproduce the result with a small value you can calculate by hand. If the formula and hand result agree, the issue is probably an input definition. If they differ, note the exact inputs and use the [contact page](/contact) to report the calculator and expected result without including private account information.
+
+## How do you maintain a personal data sheet?
+
+Use one row per observation with date, source screen, unit, conditions, and confidence. Keep raw observations separate from calculated columns. When an update arrives, mark old rows as pre-update instead of deleting them. That makes it possible to explain why a recommendation changed and prevents a stale screenshot from silently returning to the active plan.
+
+Suggested fields are: observation date, pet or route, displayed base value, visible modifiers, current speed, elapsed seconds, success or failure, and a short condition note. The calculators run locally and do not keep this sheet for you. Store it in a place you control, and avoid including Roblox credentials or other personal data.
+
+## Which result deserves action first?
+
+Prefer a result that is supported by current visible inputs, changes a real decision, and remains favorable across a reasonable range. Delay a result based on an unverified threshold, a single unusually fast run, or a multiplier whose meaning is unclear. The [source policy](/wiki/source-policy) explains how this wiki labels those confidence differences.
+
+## How should you share a calculator result?
+
+Share the inputs, units, formula or tool link, and observation date beside the result. Say whether the numbers came from a live interface, a personal timed sample, or a hypothetical example. A screenshot of the output alone cannot show whether a rate already included a modifier or whether route time excluded failures.
+
+When another player gets a different answer, compare inputs before comparing conclusions. Different speed, route, occupied slots, session length, or stopping rule can produce different valid plans. If the same inputs produce a different calculation, report the exact page and values through [Contact](/contact) so the implementation can be checked without exposing account information.

@@ -2,12 +2,12 @@
 /**
  * LegalPage layout — wraps legal pages (About/Privacy/Terms/Copyright).
  *
- * Per PRD, legal page body text is hardcoded English (not translated) but
- * the surrounding chrome (nav, footer, theme) respects the current locale.
+ * Legal copy lives in locale JSON. The surrounding chrome respects the locale.
  */
 import LocaleLayout from './LocaleLayout.astro';
 import { type Locale } from '~/i18n/routing';
 import { site } from '~/config/site';
+import { getUi } from '~/i18n/ui';
 
 interface Props {
   locale: Locale;
@@ -16,13 +16,14 @@ interface Props {
   /** ISO date string for "last updated". */
   lastUpdated?: string;
 }
-const { locale, title, description = `${title} — ${site.name} is an independent ${site.game.name} fan wiki with guides, codes, pets, eggs, and game data.`, lastUpdated } = Astro.props;
+const { locale, title, description = site.description, lastUpdated } = Astro.props;
+const ui = getUi(locale);
 ---
 
-<LocaleLayout locale={locale} title={title} description={description}>
+<LocaleLayout locale={locale} title={title} description={description} adsEnabled={false}>
   <article class="mx-auto max-w-3xl">
     <h1 class="text-3xl font-extrabold tracking-tight md:text-4xl">{title}</h1>
-    {lastUpdated && <p class="mt-2 text-sm text-muted-foreground">Last updated: {lastUpdated}</p>}
+    {lastUpdated && <p class="mt-2 text-sm text-muted-foreground">{ui.shared.lastUpdated}: <time datetime={lastUpdated}>{lastUpdated}</time></p>}
     <div
       class="prose prose-lg mt-8 max-w-none dark:prose-invert prose-headings:scroll-mt-20 prose-a:text-nav"
     >

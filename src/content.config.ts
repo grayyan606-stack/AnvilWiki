@@ -36,6 +36,8 @@ const wiki = defineCollection({
       image: image().optional(),
       tags: z.array(z.string()).default([]),
       noindex: z.boolean().default(false),
+      /** Reviewed editorial opt-in only; also requires the global advertising switch and CMP setup. */
+      adsEnabled: z.boolean().default(false),
       /**
        * Draft articles: visible in `pnpm dev`, excluded from the production
        * build (pages, lists, recent, related, hreflang, sitemap).

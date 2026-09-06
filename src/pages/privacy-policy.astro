@@ -2,8 +2,10 @@
 import LegalPage from '~/components/layout/LegalPage.astro';
 import LegalContent from '~/components/layout/LegalContent.astro';
 import { defaultLocale } from '~/i18n/routing';
+import { getUi } from '~/i18n/ui';
+const page = getUi(defaultLocale).legal.pages['privacy-policy'];
 ---
 
-<LegalPage locale={defaultLocale} title="Privacy Policy" lastUpdated="2026-09-06">
-  <LegalContent page="privacy-policy" />
+<LegalPage locale={defaultLocale} title={page.title} description={page.description} lastUpdated={page.lastUpdated}>
+  <LegalContent page="privacy-policy" locale={defaultLocale} />
 </LegalPage>

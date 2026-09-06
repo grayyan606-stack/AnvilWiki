@@ -27,9 +27,9 @@ export interface SiteConfig {
     reddit?: string;
   };
   /**
-   * Canonical URLs about the GAME (Steam page, official site, Wikipedia entry…).
-   * Emitted as Organization JSON-LD `sameAs` — helps Google / AI engines link
-   * this wiki to the game's knowledge-graph entity.
+   * Verified identity URLs for the WIKI organization itself, such as its own
+   * social profiles. Emitted as Organization JSON-LD `sameAs`.
+   * Official game links belong in `social`, not in the wiki's identity list.
    */
   sameAs?: string[];
   game: {
@@ -63,11 +63,11 @@ export const site: SiteConfig = {
   domain: 'steal-an-egg-3ny.wiki',
   tagline: 'Steal smarter. Hatch better. Progress faster.',
   legalNotice:
-    'Steal an Egg Wiki is an independent fan-made resource. It is not affiliated with Roblox or the game developer.',
+    'Steal an Egg Wiki is an independent fan-made resource, not affiliated with or endorsed by Roblox Corporation or the game developer. Game names and trademarks belong to their respective owners.',
   social: {
     official: 'https://www.roblox.com/games/107778070777162/Steal-An-Egg',
   },
-  sameAs: ['https://www.roblox.com/games/107778070777162/Steal-An-Egg'],
+  sameAs: [],
   game: {
     name: 'Steal an Egg',
     platform: 'Roblox',

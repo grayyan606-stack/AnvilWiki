@@ -4,7 +4,7 @@ description: 'Project Steal an Egg pet income with base rate, mutation, size, co
 category: 'tools'
 image: '../../../../assets/covers/en/tools/income-calculator.png'
 date: 2026-08-31
-lastModified: 2026-08-31
+lastModified: 2026-09-06
 tags: ['tools', 'calculator', 'income', 'pets']
 gameVersion: 'Aug 26 check'
 summary: 'Use this Steal an Egg income calculator to project passive income from one pet contribution rate, mutation, size, copies, and your chosen session length. The formula is transparent, works in your browser, and avoids hidden rate assumptions that cannot be verified in the live game.'
@@ -77,3 +77,47 @@ It cannot know whether a pet will remain good after the next update, whether an 
 ## When is this more useful than a fixed table?
 
 This calculator survives balance changes better than a static table because it separates the live value from the planning math. Re-enter your current numbers after every update, then compare two setups with the [full calculator suite](/tools/calculators) or check related pets in the [all pets index](/pets/all-pets).
+
+## Should you enter a displayed total or a base rate?
+
+Use the least processed value you can identify. If the game shows a pet's base income and separately shows mutation and size multipliers, enter all three. If the displayed contribution already includes those effects, enter that contribution as the base and leave both multiplier fields at `1`. Multiplying an already modified value again is the most common way to create an impressive but false projection.
+
+Run a simple consistency check: set copies to one and hours to a short interval, then compare the calculated per-second contribution with the live display. If the result is larger by exactly one of your multipliers, that modifier was probably already included. The calculator cannot detect this automatically because it receives numbers, not the meaning of the game's UI label.
+
+## How do you compare an upgrade fairly?
+
+Create one calculation for the current slot and one for the proposed replacement. Use the same time period and the values visible under the same conditions. Then calculate the difference between the two totals. That difference is the benefit attributable to the swap; the candidate's entire income is not new benefit because the old slot was already producing value.
+
+Next compare that gain with acquisition effort. Time a complete attempt from leaving the base until you are ready to start again. Include failed returns as zero-result attempts. You do not need a universal drop-rate claim to answer whether the candidate is worthwhile for you: the observed time cost and the calculated improvement are enough to frame the choice.
+
+## How should copies be handled?
+
+The copies field assumes each copy contributes the same entered rate. Use it only when the copies have matching relevant values. If one pet has a different mutation or size, calculate that pet separately and add the results. Combining unlike pets under one multiplier hides the strongest and weakest contributions and makes later checks difficult.
+
+For a mixed base, make a short table with one row per distinct configuration:
+
+| Configuration | Rate entered | Copies | Projected contribution |
+| --- | ---: | ---: | ---: |
+| Normal version | live value | matching count | calculator result |
+| Mutated version | live value or separate inputs | matching count | calculator result |
+| Different size | live value or separate inputs | matching count | calculator result |
+
+The labels matter more than fancy formatting. A future update can be handled by replacing one row instead of reconstructing an undocumented total.
+
+## How can you avoid overstating offline income?
+
+Do not label the hours field “offline hours” unless you have confirmed that the current game awards the same contribution while away and have checked any visible cap or adjustment. The field simply multiplies a contribution over time. For an offline estimate, observe the balance immediately before leaving and immediately after returning, record the elapsed time, and compare the actual change with the projection.
+
+A mismatch can reflect an offline cap, different calculation rule, server timing, or an input that already included a multiplier. One observation identifies a question; repeated observations under recorded conditions support a working estimate. Keep such an estimate personal until it is documented well enough for publication.
+
+## What should you record with a saved result?
+
+Save the page or pet name, visible input labels, date, game version if shown, calculation purpose, and whether the starting rate was base or already modified. Screenshots can help you remember labels, but write the units in text as well. If you later share the result, call it a calculation from supplied inputs rather than an official earning guarantee.
+
+For base-wide decisions, repeat the calculation for each materially different slot and add the contributions. Then use the [best pets guide](/pets/best-pets) as a target list while keeping your actual live cards as the source for the numbers.
+
+## How do you check the estimate against the live game?
+
+Write down the displayed balance before a quiet measurement window, avoid changing pets or modifiers, and record the balance and elapsed time afterward. Note any collection action, cap, reconnect, or event that could affect the difference. Compare the observed change with the calculator result using the same time unit. One mismatch is a reason to inspect the inputs, not proof of a hidden universal multiplier.
+
+Repeat under similar conditions before revising a working estimate. If the result stays different, test whether the entered rate was already modified, whether copies contribute independently, and whether offline progress follows a different rule. Keep each hypothesis labeled until the interface or repeated measurements support it. This process turns the calculator into an auditable decision aid while avoiding claims about server logic the page cannot observe.

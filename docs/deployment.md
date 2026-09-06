@@ -196,6 +196,8 @@ Dashboard（方案 C）在 Pages → **Settings** → **Environment variables** 
 | `SITE_URL`                  | ✅   | 站点绝对 URL（含 `https://`，无尾斜杠），影响 sitemap/og:image/robots |
 | `NODE_VERSION`              | ✅   | 固定 `22`（pnpm 11 要求 ≥22.13）                       |
 | `PUBLIC_ADSENSE_CLIENT`      | 可选 | AdSense Publisher ID（`ca-pub-XXXXXXXXXXXXXXXX`）      |
+| `PUBLIC_ADSENSE_ENABLED`     | 可选 | 全局广告投放开关；审核期保持 `false`                   |
+| `PUBLIC_ADSENSE_CMP_READY`   | 可选 | 认证 CMP 已部署并测试后的人工确认；默认 `false`        |
 | `PUBLIC_ADSENSE_SLOT_STICKY` | 可选 | Sticky 粘顶横幅 slot ID                                |
 | `PUBLIC_ADSENSE_SLOT_SIDEBAR`| 可选 | Sidebar 桌面端侧边栏 slot ID                           |
 | `PUBLIC_ADSENSE_SLOT_INCONTENT` | 可选 | InContent 文章内 slot ID                            |
@@ -210,7 +212,7 @@ Dashboard（方案 C）在 Pages → **Settings** → **Environment variables** 
 | `PUBLIC_GISCUS_CATEGORY_ID` | 可选 | Giscus 分类 ID（4 个必填项之一）                       |
 | `PUBLIC_GISCUS_MAPPING`     | 可选 | Giscus 页面映射方式，默认 `pathname`（唯一可选项）     |
 
-完整说明见 [`.env.example`](../.env.example)。所有广告/评论变量**留空时对应组件不渲染**——新手可以先不配广告把站上线，后续再加。
+完整说明见 [`.env.example`](../.env.example)。广告还需要文章 frontmatter 的 `adsEnabled: true`；任一投放门控或对应 slot 未满足时不渲染。新手可以先不配广告把站上线，后续通过审核并完成 CMP 测试后再逐页启用。
 
 ---
 

@@ -8,12 +8,12 @@
  *   - sidebar  → PUBLIC_ADSENSE_SLOT_SIDEBAR
  *   - incontent→ PUBLIC_ADSENSE_SLOT_INCONTENT
  *
- * When client OR the position's slot ID is empty, the component renders
- * nothing — beginners can deploy with no ads configured and the site
- * works fine (template's out-of-box Lighthouse 4×100 contract).
+ * Rendering also requires PUBLIC_ADSENSE_ENABLED=true and
+ * PUBLIC_ADSENSE_CMP_READY=true. When any gate or the position's slot ID is
+ * missing, the component renders nothing.
  *
  * The AdSense loader script is injected once in BaseLayout.astro `<head>`
- * (gated on PUBLIC_ADSENSE_CLIENT). Each slot just drops an
+ * (gated on the same deployment and page checks). Each slot just drops an
  * `<ins class="adsbygoogle">` tag and pushes to the `adsbygoogle` queue.
  *
  * Usage:
@@ -21,6 +21,8 @@
  *   <AdSenseSlot position="sidebar" />
  *   <AdSenseSlot position="incontent" />
  */
+import { getAdsenseClient, canServeAds } from '~/lib/ads';
+
 interface Props {
   /** Where the ad lives — maps to a PUBLIC_ADSENSE_SLOT_* env var. */
   position: 'sticky' | 'sidebar' | 'incontent';
@@ -39,11 +41,12 @@ const positionToEnv: Record<Props['position'], string> = {
 };
 
 const { position, format = 'auto', responsive = true, class: className = '' } = Astro.props;
-const client = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
+const client = getAdsenseClient(import.meta.env.PUBLIC_ADSENSE_CLIENT);
 const slot = import.meta.env[positionToEnv[position]] as string | undefined;
+const show = canServeAds(client, import.meta.env.PUBLIC_ADSENSE_ENABLED, import.meta.env.PUBLIC_ADSENSE_CMP_READY, true) && !!slot;
 ---
 
-{client && slot && (
+{show && (
   <ins
     class={`adsbygoogle ${className}`.trim()}
     style="display:block"
@@ -54,7 +57,7 @@ const slot = import.meta.env[positionToEnv[position]] as string | undefined;
   />
 )}
 
-{client && slot && (
+{show && (
   <script is:inline>
     (window.adsbygoogle = window.adsbygoogle || []).push({});
   </script>

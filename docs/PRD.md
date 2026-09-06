@@ -943,9 +943,9 @@ export function getUi(locale: Locale) {
 
 ### 10.1 设计原则
 
-**核心**：Google AdSense 集成——3 个广告位各一个 AdSense slot，环境变量驱动，key 为空时组件 `return null` 不渲染（保 Lighthouse 4×100 开箱契约）。
+**核心**：Google AdSense 集成——账号验证与广告投放分离。`PUBLIC_ADSENSE_CLIENT` 只生成静态验证 meta 和 ads.txt；投放还需全局开关、CMP 人工就绪确认、slot ID，以及文章 frontmatter `adsEnabled: true`。任一条件不满足都不渲染广告（保 Lighthouse 4×100 开箱契约）。
 
-- AdSense loader 脚本由 `BaseLayout.astro` 在 `<head>` 注入，仅当 `PUBLIC_ADSENSE_CLIENT` 有值时加载。
+- AdSense loader 脚本由 `BaseLayout.astro` 在 `<head>` 定义，仅当账号、全局投放、CMP 就绪和页面许可同时满足时才可加载。
 - 每个广告位是一个 `<AdSenseSlot position="...">` 组件，根据 position 读取对应的 slot ID 环境变量。
 - 尺寸由 AdSense 自动决定（responsive），不需要为每个位置指定固定尺寸。
 
@@ -953,7 +953,7 @@ export function getUi(locale: Locale) {
 
 | 位置 | 组件 | 挂载点 | Slot 环境变量 |
 |---|---|---|---|
-| Sticky（粘顶横幅） | `StickyBanner.astro` | `LocaleLayout`（全局） | `PUBLIC_ADSENSE_SLOT_STICKY` |
+| Sticky（粘顶横幅） | `StickyBanner.astro` | `LocaleLayout`（仅 `adsEnabled` 文章） | `PUBLIC_ADSENSE_SLOT_STICKY` |
 | Sidebar（桌面端侧边栏） | `SidebarAd.astro` | `WikiSidebar`（桌面端） | `PUBLIC_ADSENSE_SLOT_SIDEBAR` |
 | InContent（文章内） | `InContentAd.astro` | `ArticlePage`（相关文章前） | `PUBLIC_ADSENSE_SLOT_INCONTENT` |
 
@@ -976,11 +976,16 @@ interface Props {
   responsive?: boolean;
 }
 const { position, format = 'auto', responsive = true } = Astro.props;
-const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const client = getAdsenseClient(import.meta.env.PUBLIC_ADSENSE_CLIENT);
 const slot = import.meta.env[`PUBLIC_ADSENSE_SLOT_${position.toUpperCase()}`];
-// client 或 slot 任一为空 → return null（不渲染）
+const show = canServeAds(
+  client,
+  import.meta.env.PUBLIC_ADSENSE_ENABLED,
+  import.meta.env.PUBLIC_ADSENSE_CMP_READY,
+  true,
+) && !!slot;
 ---
-{client && slot && (
+{show && (
   <>
     <ins class="adsbygoogle" style="display:block"
       data-ad-client={client} data-ad-slot={slot}
@@ -1031,13 +1036,15 @@ const show = !!(client && slot);
 </script>
 ```
 
-### 10.5 环境变量驱动
+### 10.5 环境变量与页面许可驱动
 
-广告配置全部走环境变量，**4 个变量全填才显示广告，任一为空对应位置不渲染**。新手部署时广告位是空的，不报错；接入广告时填 env 即生效。
+广告账号和部署开关走环境变量，页面范围走文章 frontmatter。默认全部关闭；只填 Publisher ID 只完成静态验证，不会请求广告。开启投放前必须部署并测试适用的 Google 认证 CMP，再由站长将 `PUBLIC_ADSENSE_CMP_READY` 设为 `true`。这个布尔值只是人工验收记录，本身不会创建 CMP。
 
 | 变量 | 说明 |
 |---|---|
 | `PUBLIC_ADSENSE_CLIENT` | AdSense Publisher ID（`ca-pub-XXXXXXXXXXXXXXXX`），门控 loader 注入 |
+| `PUBLIC_ADSENSE_ENABLED` | 全局投放开关；审核期保持 `false` |
+| `PUBLIC_ADSENSE_CMP_READY` | 认证 CMP 已部署并完成接受/拒绝/撤回测试后的人工确认；默认 `false` |
 | `PUBLIC_ADSENSE_SLOT_STICKY` | Sticky 位置的 slot ID |
 | `PUBLIC_ADSENSE_SLOT_SIDEBAR` | Sidebar 位置的 slot ID |
 | `PUBLIC_ADSENSE_SLOT_INCONTENT` | InContent 位置的 slot ID |
@@ -1047,10 +1054,11 @@ const show = !!(client && slot);
 ### 10.6 广告部署流程
 
 1. 在 [Google AdSense](https://adsense.google.com/) 注册并提交你的站点审核。
-2. 审核通过后，拿到 Publisher ID（格式 `ca-pub-XXXXXXXXXXXXXXXX`）。
+2. 从后台复制本人 Publisher ID（格式 `ca-pub-XXXXXXXXXXXXXXXX`），用于验证 meta 与 ads.txt；无需用示例 ID，也无需让它自动开启广告。
 3. 在 AdSense 后台创建 3 个广告单元（建议选 Responsive），分别拿到 3 个 slot ID。
-4. 在 Cloudflare Pages 项目 Settings → Environment variables（或 `wrangler.toml` 的 `[vars]`）填入 4 个变量：`PUBLIC_ADSENSE_CLIENT` + 3 个 slot ID。
-5. 重新部署，广告自动出现。
+4. 在 AdSense Privacy & messaging 配置适用的 Google 认证 CMP，测试接受、拒绝、管理选项与撤回；完成后才设 `PUBLIC_ADSENSE_CMP_READY=true`。
+5. 人工审核允许投放的正文文章并设置 `adsEnabled: true`；信任页、导航页、404、草稿和 noindex 页保持关闭。
+6. 站点状态 Ready 后设置 `PUBLIC_ADSENSE_ENABLED=true` 并重新部署。三个 slot 可按实际布局逐个启用。
 
 > AdSense 审核通常需要数天到数周，期间站点正常运行（广告位为空）。详见 [AdSense 帮助中心](https://support.google.com/adsense/)。
 
@@ -1434,6 +1442,8 @@ describe('sitemap', () => {
 | 变量名 | 用途 |
 |---|---|
 | `PUBLIC_ADSENSE_CLIENT` | AdSense Publisher ID（`ca-pub-XXXXXXXXXXXXXXXX`），门控 loader 注入 |
+| `PUBLIC_ADSENSE_ENABLED` | 全局广告投放开关，默认 `false` |
+| `PUBLIC_ADSENSE_CMP_READY` | 认证 CMP 已实际部署、测试并验收的人工确认，默认 `false` |
 | `PUBLIC_ADSENSE_SLOT_STICKY` | Sticky 粘顶横幅 slot ID |
 | `PUBLIC_ADSENSE_SLOT_SIDEBAR` | Sidebar 桌面端侧边栏 slot ID |
 | `PUBLIC_ADSENSE_SLOT_INCONTENT` | InContent 文章内 slot ID |
@@ -1456,6 +1466,8 @@ SITE_URL=https://your-domain.wiki
 
 # 广告（可选，留空则不显示）
 PUBLIC_ADSENSE_CLIENT=
+PUBLIC_ADSENSE_ENABLED=false
+PUBLIC_ADSENSE_CMP_READY=false
 PUBLIC_ADSENSE_SLOT_STICKY=
 PUBLIC_ADSENSE_SLOT_SIDEBAR=
 PUBLIC_ADSENSE_SLOT_INCONTENT=
@@ -1538,7 +1550,8 @@ PUBLIC_GA_ID=
 
 ```
 □ Google AdSense 账号已注册，网站已审核通过
-□ 4 个广告变量已配到 Cloudflare 环境变量（CLIENT + 3 个 slot ID）
+□ Publisher ID、启用开关、CMP 就绪确认及所需 slot 已配到 wrangler.toml
+□ 仅审核合格的正文文章设置 adsEnabled: true；信任页与工具页无广告
 □ 移动端 + 桌面端广告正常显示不破版
 □ Sticky 粘顶横幅正常，有关闭按钮
 □ 桌面端侧边栏广告 fixed 正常

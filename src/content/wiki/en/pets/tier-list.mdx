@@ -4,7 +4,7 @@ description: 'A source-bounded Steal an Egg pet tier-list framework with reprodu
 category: 'pets'
 image: '../../../../assets/covers/en/pets/tier-list.png'
 date: 2026-08-31
-lastModified: 2026-08-31
+lastModified: 2026-09-06
 tags: ['pets', 'best-pets', 'ranking', 'tools']
 gameVersion: 'Aug 26 check'
 summary: 'This Steal an Egg tier list page does not invent universal S-to-D pet ranks. It gives a transparent scoring framework based on live income, copies, route time, risk, and evidence. Use it to rank pets against your own server and goals, then update the results after every game patch.'
@@ -47,3 +47,59 @@ For the income half, use the [income calculator](/tools/income-calculator). For 
 - Any event or incubator modifier.
 
 Then review the [best pets guide](/pets/best-pets) and the [all pets index](/pets/all-pets) to see whether your ranking still matches the current evidence.
+
+## Which goal is your ranking designed for?
+
+Choose one goal before assigning tiers. A passive-income list asks which pets improve the base. A progression list may value a target that unlocks a system. A route-efficiency list includes acquisition time and failures. Combining all three without weights makes the rank impossible to reproduce.
+
+Write the goal above the sheet and keep a separate list when the goal changes. A pet can be Personal S for an unlock and Personal B for immediate income without contradiction.
+
+## What data belongs in the scoring sheet?
+
+Use one row per pet configuration, because mutation and size can make two copies meaningfully different. Recommended columns are displayed contribution, copies, route, median loop time, attempts, successful returns, resource cost, check date, and evidence note. Keep raw observations beside the calculated score.
+
+Do not fill missing cells with zeros unless zero is the observed value. “Unknown” preserves the difference between no benefit and no evidence. A Watch tier exists for this reason.
+
+## How do you create an income score?
+
+Compare the candidate with the slot it would replace. The immediate income improvement is:
+
+`candidate final contribution − replaced slot contribution`
+
+Use live card values where possible. If you use base income and visible multipliers, state whether the card already includes them. Apply every modifier once. The [income calculator](/tools/income-calculator) can reproduce the arithmetic, but it cannot validate the inputs.
+
+## How do you include route reliability?
+
+Time full loops and record every attempt. Use successful returns divided by total play time, not the quickest successful route. A candidate with a high pet value and very low return reliability may rank below a modest target that arrives consistently.
+
+Avoid inventing a universal “risk penalty.” Choose a simple personal method and publish it with the result. For example, compare income improvement per hour of observed attempts, or reject any route below a minimum success rate you define for yourself. The threshold is a preference, not an official game rule.
+
+## How many samples are enough?
+
+The table uses ten or more logged samples as the standard for Personal S because the top label should survive ordinary variation. This is an editorial threshold for this framework, not a claim about statistical certainty. Fewer samples can still guide a temporary choice, but belong in A, B, or Watch depending on consistency and evidence.
+
+Collect samples across normal conditions rather than repeating only an unusually quiet moment. Record server or event conditions when they visibly matter. If all samples come from one special event, scope the rank to that event.
+
+## How should ties be handled?
+
+Do not manufacture a winner from tiny differences inside the uncertainty of your inputs. Put tied candidates in the same tier and use secondary criteria that match the goal: easier route, lower resource cost, more reliable evidence, or an unlock you need. State the tiebreaker.
+
+If changing one plausible input reverses the order, the result is sensitive. Gather another observation or keep the tie. A stable decision is more useful than a precise-looking score.
+
+## How can two players have different valid tiers?
+
+They may have different current slots, speed, routes, mutations, play windows, and tolerance for failed attempts. The same pet creates a large upgrade for an empty or weak base and a small upgrade for an advanced one. Personal tiers should therefore publish their starting conditions.
+
+This framework is designed to explain that difference. It should not be used to claim that another player's reproducible ranking is false merely because the letters differ.
+
+## A repeatable update routine
+
+After a patch, duplicate the old sheet, label it with the earlier date, and recheck only the inputs likely to change first. Test a small set of benchmark pets and routes. If they match, retain unaffected ranks with the existing evidence date. If they differ, reopen related comparisons.
+
+Record why a tier moved. “Updated” is less useful than “live contribution changed” or “return route became less reliable.” Link confirmed public corrections to the [data corrections log](/updates/data-corrections).
+
+## What should never be published as a tier list?
+
+Do not publish invented pets, reconstructed values with hidden assumptions, paid placements disguised as rankings, or a copied image with no source and date. If a commercial relationship ever influences a recommendation, disclose it beside the relevant link. Current affiliate suggestions are disabled by default and do not determine these tiers.
+
+A public ranking should also avoid hiding its scope. Name the game version or check date, the player goal, the scoring weights, and the evidence gaps. Preserve the prior sheet when a patch changes the order so readers can see why a pet moved instead of receiving an unexplained replacement image.

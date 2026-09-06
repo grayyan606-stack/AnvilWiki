@@ -1,6 +1,6 @@
 ---
 /**
- * CookieConsent — GDPR/ePrivacy consent banner that actually GATES tracking.
+ * CookieConsent — local opt-in banner that gates optional loaders.
  *
  * How it works (with BaseLayout):
  *   - BaseLayout no longer injects GA / AdSense statically. Instead it defines
@@ -11,7 +11,9 @@
  *   - Decline → store 'declined', trackers never load (this session & future).
  *   - Returning visitors with a stored choice never see the banner again.
  *
- * Default-off contract preserved: no tracking env vars → this component is
+ * This component is not a Google-certified TCF CMP. AdSense remains hard-gated
+ * by PUBLIC_ADSENSE_CMP_READY until the site owner deploys and tests one.
+ * Default-off contract preserved: no optional loaders → this component is
  * never rendered → zero JS → Lighthouse unchanged.
  */
 interface Props {
@@ -61,7 +63,7 @@ const { labels, privacyHref, privacyLabel } = Astro.props;
 </div>
 
 <script>
-  // Type the tracker loader defined in BaseLayout (consent-gated GA/AdSense).
+  // Type the optional-service loader defined in BaseLayout.
   declare global {
     interface Window {
       __awLoadTrackers?: () => void;

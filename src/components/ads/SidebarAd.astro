@@ -2,14 +2,15 @@
 /**
  * SidebarAd — desktop-only fixed sidebar ad (AdSense).
  *
- * Gated on PUBLIC_ADSENSE_CLIENT + PUBLIC_ADSENSE_SLOT_SIDEBAR:
- * either empty = nothing rendered.
+ * Gated on the global ad switch, CMP readiness, client ID, and
+ * PUBLIC_ADSENSE_SLOT_SIDEBAR. Its parent must also be limited to an eligible
+ * content page.
  */
 import AdSenseSlot from './AdSenseSlot.astro';
 
 const client = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
 const slot = import.meta.env.PUBLIC_ADSENSE_SLOT_SIDEBAR as string | undefined;
-const show = !!(client && slot);
+const show = import.meta.env.PUBLIC_ADSENSE_ENABLED === 'true' && import.meta.env.PUBLIC_ADSENSE_CMP_READY === 'true' && !!(client && slot);
 ---
 
 {

@@ -52,7 +52,13 @@ PUBLIC_CF_BEACON_TOKEN = "2a48077f1fa04ab9900b98c1419fdfe4"
 # Route (A) users: fill them HERE, not in the dashboard — the dashboard UI
 # is ignored while this file exists. Full reference: .env.example / docs/deployment.md
 #
-# Google AdSense (all 4 set = ads render at 3 positions)
+# Account ID enables static verification and ads.txt only.
+# Ad display additionally requires this switch, a reviewed article's
+# adsEnabled: true, a slot ID, and a correctly configured certified CMP.
+# Leave disabled during review. See docs/adsense-remediation.md.
+PUBLIC_ADSENSE_ENABLED = "false"
+# Manual acknowledgement after a Google-certified CMP is deployed and tested.
+PUBLIC_ADSENSE_CMP_READY = "false"
 PUBLIC_ADSENSE_CLIENT = ""
 PUBLIC_ADSENSE_SLOT_STICKY = ""
 PUBLIC_ADSENSE_SLOT_SIDEBAR = ""

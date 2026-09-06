@@ -4,7 +4,7 @@ description: 'Track known Steal an Egg data conflicts, correction dates, pet-cou
 category: 'updates'
 image: '../../../../assets/covers/en/updates/data-corrections.png'
 date: 2026-08-26
-lastModified: 2026-08-26
+lastModified: 2026-09-06
 tags: ['corrections', 'sources', 'updates']
 summary: 'This public log records launch-state conflicts instead of hiding them. The largest current issue is the difference between pre-Cherry Blossom nine-biome pet lists and post-update ten-biome trackers. Exact totals stay qualified until the live Index and current sources align.'
 author: 'Steal an Egg Wiki Editors'
@@ -28,3 +28,56 @@ import EvidencePanel from '~/components/article/EvidencePanel.astro';
 When a value changes, we update the relevant page's `lastModified` date, preserve the reason here, and keep the evidence level visible. Official in-game values override community tables; current cross-checked observations override stale single-source claims.
 
 Read the full [source and evidence policy](/wiki/source-policy).
+
+## How should this log be read?
+
+Each row names a disagreement, not a verdict that one source is dishonest. Earlier and newer reports may describe different game versions. Two current observations may also use different definitions, such as the speed required to enter a biome versus the speed used for a comfortable egg return.
+
+The “current handling” column describes what this wiki publishes while the conflict remains. It can use a dated range, qualify the scope, request user input in a calculator, or leave a value unknown. The table should never collapse disagreement into a precise number just to make an article look complete.
+
+## What evidence can resolve a conflict?
+
+The strongest resolution is a current value visible in the official experience under recorded conditions. A developer-controlled announcement can resolve a named feature or intended change. Repeated independent observations can support behavior that is not documented officially, provided they record the same definition, unit, version, and relevant conditions.
+
+Search snippets, copied tables, and undated screenshots are leads. They are not enough to close a conflict. Several websites repeating the same table may still trace back to one observation.
+
+## What details belong in a correction report?
+
+- The exact wiki URL and disputed sentence or table cell.
+- The old value and proposed value, including units.
+- The date and visible game version or event state.
+- Whether the value means access, one successful return, or a safety recommendation.
+- A source URL or de-identified screenshot with enough UI context to interpret it.
+- Any mutation, size, boost, server, or route condition that could explain a difference.
+
+Do not include account credentials, browser cookies, payment details, private messages, or unrelated player information. The [contact page](/contact) uses a public external issue tracker, so reports should be safe to publish.
+
+## What happens after a report?
+
+A maintainer identifies every page using the disputed value, compares the new evidence with the recorded scope, and chooses one of four outcomes: correct the value, narrow the claim, add a range or conflict note, or retain the existing text. A report does not automatically become site content, and there is no guaranteed review time.
+
+If accepted, the affected article receives a meaningful `lastModified` date and its evidence note is updated. The correction log records why the public interpretation changed. Related calculator examples and summaries must also be checked; fixing one table while leaving the same assumption elsewhere is incomplete.
+
+## Why are the dates different?
+
+An article modification date tells readers when its file changed. An evidence check date tells them when the underlying claim was observed or reviewed. Editing grammar today does not make an August measurement current today. Both dates should move only when their corresponding event happens.
+
+This distinction prevents “freshness” from becoming decorative. A dynamically printed current date or an automated rewrite can make a page look new without improving its evidence.
+
+## How do we handle historical information?
+
+Old values can remain useful when clearly labeled with their period. A pre-Cherry Blossom nine-biome list helps explain why older guides stop at Cosmic. It should be framed as historical coverage, not deleted from the record or presented as the current total.
+
+When possible, preserve the earlier statement in this log and update the current guide. This gives readers a reason for the difference and makes future reversions easier to detect.
+
+## When should a range be narrowed?
+
+A range should narrow only when the endpoints used the same definition and newer evidence consistently excludes part of it. If one endpoint is an entry gate and another is a safe carrying target, they should be labeled separately rather than averaged. More decimal places do not solve a definition mismatch.
+
+For personal planning, use the live minimum as one input and choose a separate safety margin in the [Biome Readiness Checker](/tools/calculators#biome-calculator). For rare cycles, enter your own measured interval in the [Egg Run Planner](/tools/calculators#run-calculator). These tools preserve the uncertainty instead of hiding it.
+
+## Current review queue
+
+The four conflicts in the table remain the public launch-state review queue. A future row should state the topic, competing claims, present handling, supporting links, and resolution date when applicable. Empty rows and rumored changes should not be added merely to make the log look active.
+
+Readers can also consult the [research method](/wiki/research-method) for a repeatable observation protocol and [About](/about) for the site's editorial and independence statement.

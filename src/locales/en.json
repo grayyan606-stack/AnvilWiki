@@ -5,7 +5,7 @@
     "shortName": "Egg Wiki",
     "description": "Independent Steal an Egg wiki with verified codes status, egg and pet indexes, mutations, biomes, guides, calculators, and update tracking.",
     "tagline": "Steal smarter. Hatch better. Progress faster.",
-    "legalNotice": "Steal an Egg Wiki is an independent fan-made resource. It is not affiliated with Roblox or the game developer."
+    "legalNotice": "Steal an Egg Wiki is an independent fan-made resource, not affiliated with or endorsed by Roblox Corporation or the game developer. Game names and trademarks belong to their respective owners."
   },
   "nav": {
     "home": "Home",
@@ -167,7 +167,7 @@
     "hero": {
       "badge": "Independent English Wiki · Checked August 31, 2026",
       "title": "Steal an Egg Wiki",
-      "description": "Find the right egg, rank pets with evidence, compare mutations, plan your next biome, and use calculators built around values you can verify in your own game.",
+      "description": "An independent fan-made guide to Steal an Egg on Roblox. Find eggs and pets, compare mutations, plan biome routes, and calculate progress with values from your own game.",
       "ctaPrimary": "Play on Roblox",
       "ctaSecondary": "Browse Guides",
       "videoId": ""
@@ -441,8 +441,229 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "copyright": "Copyright",
-    "copyrightText": "© 2026 Steal an Egg Wiki. Independent fan site; not affiliated with Roblox Corporation or the game developer. Game names and trademarks belong to their respective owners.",
+    "copyrightText": "© 2026 Steal an Egg Wiki. Independent fan site; not affiliated with, endorsed by, or sponsored by Roblox Corporation or the game developer. Game names and trademarks belong to their respective owners.",
     "community": "Community",
     "legal": "Legal"
+  },
+  "legal": {
+    "pages": {
+      "about": {
+        "title": "About",
+        "description": "Learn who maintains Steal an Egg Wiki, how evidence and corrections are reviewed, and why this fan site is independent of Roblox and the developer.",
+        "lastUpdated": "2026-09-06",
+        "intro": [
+          "{siteName} is an independent, fan-made reference for {gameName} on Roblox. We publish English guides, reference pages, and calculators to help players understand the game and check update-sensitive information.",
+          "We are not affiliated with, endorsed by, sponsored by, or officially connected to Roblox Corporation, the game developer, or any official game community. For the current experience and its developer information, visit the <a href=\"{officialUrl}\" rel=\"noopener noreferrer\" target=\"_blank\">official Roblox game page</a>."
+        ],
+        "sections": [
+          {
+            "heading": "What We Cover",
+            "items": [
+              "Dated code and redemption-status checks",
+              "Egg, pet, mutation, and biome references",
+              "Progression and route guides for new and returning players",
+              "Calculators that use values supplied by the player",
+              "Source labels, update notes, and a public correction log"
+            ]
+          },
+          {
+            "heading": "Who Maintains the Wiki",
+            "paragraphs": [
+              "The site's maintainers publish under the editorial name Steal an Egg Wiki Editors. This is a fan project, and that name does not represent an official Roblox or game-development team. The <a href=\"https://github.com/grayyan606-stack/AnvilWiki\" rel=\"noopener noreferrer\" target=\"_blank\">public repository</a> provides the site's source and change history. Reading guides and using calculators require no site account."
+            ]
+          },
+          {
+            "heading": "Sources, Corrections, and Community Contributions",
+            "paragraphs": [
+              "Official statements, community observations, and calculated estimates are labeled separately. Conflicting sources and missing evidence stay visible. Check the <a href=\"/wiki/source-policy\">source and evidence policy</a> and <a href=\"/updates/data-corrections\">data corrections log</a> for details.",
+              "Readers can propose changes through external GitHub issues or pull requests. A maintainer must review the evidence, wording, links, and rights to contributed material before it is incorporated into a published page. Submission does not publish a comment or article on this website. On-site comments and public uploads are currently disabled. Unsupported claims, spam, harassment, private information, and infringing material should not be included in contributions.",
+              "Use the <a href=\"/contact\">contact page</a> to report a correction or rights concern. We do not promise a fixed review time."
+            ]
+          },
+          {
+            "heading": "Game Support and Ownership",
+            "paragraphs": [
+              "Roblox Corporation and the game developer handle their own accounts, purchases, moderation, and support. This wiki cannot grant rewards, restore accounts, reverse bans, or process refunds.",
+              "Roblox is a trademark of Roblox Corporation. Game names, logos, characters, and other third-party material belong to their respective owners. See the <a href=\"/copyright\">copyright page</a> for attribution, licensing, and reporting information."
+            ]
+          }
+        ]
+      },
+      "privacy-policy": {
+        "title": "Privacy Policy",
+        "description": "How Steal an Egg Wiki handles Cloudflare analytics, browser storage, YouTube requests, GitHub submissions, advertising choices, and privacy questions.",
+        "lastUpdated": "2026-09-06",
+        "intro": [
+          "This policy explains information handling on {siteName}, an independent fan website. It covers this website; external services have their own policies. For questions, use the contact route below.",
+          "<strong>Current services:</strong> Cloudflare hosts this site and Cloudflare Web Analytics is enabled. Google Analytics, Google AdSense advertising, and embedded GitHub comments (giscus) are currently disabled. We provide no site account, checkout, newsletter signup, or public upload form. Pages can include YouTube thumbnails and videos as explained below."
+        ],
+        "sections": [
+          {
+            "heading": "Hosting and Traffic Measurement",
+            "paragraphs": [
+              "Your browser sends network requests to load our pages. Cloudflare processes request information, which can include your IP address, traffic-routing information, and system configuration, to deliver and protect its services. This is separate from the aggregate analytics described below. See <a href=\"https://www.cloudflare.com/privacypolicy/\" rel=\"noopener noreferrer\" target=\"_blank\">Cloudflare's Privacy Policy</a>.",
+              "Cloudflare Web Analytics measures page views and page performance. Reports can be grouped by page, referring site, browser, operating system, device type, and country. We use these reports to understand traffic and improve pages. Cloudflare describes Web Analytics as not using cookies or localStorage to identify visitors and not fingerprinting individuals. Read its <a href=\"https://developers.cloudflare.com/web-analytics/faq/\" rel=\"noopener noreferrer\" target=\"_blank\">analytics privacy FAQ</a> and <a href=\"https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/\" rel=\"noopener noreferrer\" target=\"_blank\">reported dimensions</a>."
+            ]
+          },
+          {
+            "heading": "Browser Storage, Search, and Calculators",
+            "paragraphs": [
+              "The site uses browser localStorage to remember the theme you select. The article helpfulness buttons store only that you have answered for that page, so the prompt is not repeated; the current feature does not send your answer to a server. These preferences stay in that browser until cleared by you or your browser.",
+              "If the site's optional consent notice is displayed, it stores your accepted or declined choice in localStorage. Advertising and Google Analytics are currently off, so the notice is not needed for those services in this version. A stored choice from an earlier visit may remain until you clear site data.",
+              "Calculator inputs and results are processed in your browser; the calculators do not submit them to the wiki or connect to your Roblox account. Site search uses downloaded search-index files in your browser. Neither tool requires your real name, email, Roblox password, or payment details. Ordinary page and file requests still reach our hosting provider."
+            ]
+          },
+          {
+            "heading": "YouTube Thumbnails and Video Playback",
+            "paragraphs": [
+              "A page with a video may request a thumbnail from i.ytimg.com before you press play. That request exposes network information such as your IP address and browser headers to Google's service. Pressing play loads an embedded player from youtube-nocookie.com, which contacts YouTube and processes playback information under Google's policies. Using the privacy-enhanced player does not mean that no data is transmitted.",
+              "You can read the surrounding article without playing a video. Your browser's content controls can block external images or media requests. Following a YouTube link opens that external service. Learn <a href=\"https://policies.google.com/technologies/partner-sites\" rel=\"noopener noreferrer\" target=\"_blank\">how Google uses information from sites that use its services</a> and read the <a href=\"https://policies.google.com/privacy\" rel=\"noopener noreferrer\" target=\"_blank\">Google Privacy Policy</a>."
+            ]
+          },
+          {
+            "heading": "Contact, Corrections, and GitHub",
+            "paragraphs": [
+              "Our <a href=\"/contact\">contact page</a> links to an external public GitHub issue tracker. If you submit an issue or pull request, your GitHub profile, message, attachments, and subsequent discussion may be publicly visible, indexed, or copied. The maintainers can read that information to investigate and respond; accepted corrections may become part of the website and repository history.",
+              "Do not include passwords, account tokens, payment information, home addresses, children's personal information, or other sensitive data in a public report. Use a minimal page URL and a description of the problem. If you need a private channel, request one without posting the private details; no private contact form is currently provided by this site. GitHub controls its account data and platform retention under the <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub General Privacy Statement</a>."
+            ]
+          },
+          {
+            "heading": "Advertising Cookies and Future Advertising",
+            "paragraphs": [
+              "We do not currently load Google AdSense ads. If advertising is enabled later, this policy and the on-site choices must be updated to identify the active services before they are introduced.",
+              "When Google advertising is used, third-party vendors, including Google, may use cookies, web beacons, IP addresses, or device identifiers to deliver and measure ads. Google and its partners can use advertising cookies to personalize ads based on earlier visits to this website and other websites. Other participating ad vendors or networks may also use their own cookies; their identities and policy links must be disclosed when enabled.",
+              "You can manage or opt out of Google's personalized advertising in <a href=\"https://www.google.com/settings/ads\" rel=\"noopener noreferrer\" target=\"_blank\">Google Ads Settings</a>, and review participating vendors' choices at <a href=\"https://www.aboutads.info/choices/\" rel=\"noopener noreferrer\" target=\"_blank\">aboutads.info</a>. These choices concern ad personalization; they do not necessarily stop all ads or all service requests. Browser cookie controls provide additional choices. See <a href=\"https://policies.google.com/technologies/ads\" rel=\"noopener noreferrer\" target=\"_blank\">Google's advertising technology policy</a>.",
+              "Before introducing advertising that requires consent, we must provide the applicable consent controls and a way to revisit or withdraw choices. Personalized Google ads for visitors in the EEA, UK, or Switzerland require a Google-certified consent management platform integrated with the IAB Transparency and Consent Framework. The site's basic optional-services banner is not such a certified platform and is not a substitute for it. See <a href=\"https://support.google.com/adsense/answer/13554116?hl=en\" rel=\"noopener noreferrer\" target=\"_blank\">Google's consent requirements</a>."
+            ]
+          },
+          {
+            "heading": "Your Choices and Privacy Requests",
+            "items": [
+              "Clear this website's cookies and site data in your browser to remove locally saved preferences. This also resets the theme, helpfulness marker, and any saved consent choice. Clearing this site's storage does not delete information held by external services.",
+              "Use your browser's cookie, tracking-protection, script, and media controls to limit optional requests. Reading static articles does not require accepting advertising; some interactive features need JavaScript.",
+              "Review the controls offered by Google, GitHub, and Cloudflare in the policies linked above for information they process.",
+              "For information the wiki maintainers control, use the <a href=\"/contact\">contact page</a> to ask about access, correction, or deletion. Describe the request without exposing personal details publicly. Available rights depend on your location and the information involved. We may need a way to verify a request before acting on it."
+            ]
+          },
+          {
+            "heading": "Children and Personal Information",
+            "paragraphs": [
+              "This wiki covers a Roblox game and may be read by younger players. Reading and using the calculators require no age, real name, or account information. Children should not post personal information in external reports or follow account-verification requests from strangers; a parent or guardian can help with a report.",
+              "If you believe a child has shared personal information in content the maintainers control, use the <a href=\"/contact\">contact page</a> to flag the relevant location without repeating the information. Requests about a third-party account or service should also be directed to that provider."
+            ]
+          },
+          {
+            "heading": "Retention, External Services, and Policy Changes",
+            "paragraphs": [
+              "Browser preferences remain locally until cleared. External services have their own retention and processing arrangements, described in their policies; this site does not set a universal deletion period for their records. Public issues, contributions, and repository history may persist even after a page is changed, and copies held by others may remain.",
+              "We will update this page when the site's services or handling of information change. The date above identifies the latest policy revision."
+            ]
+          }
+        ]
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Report factual corrections, broken links, accessibility issues, privacy questions, or copyright concerns to the independent Steal an Egg Wiki maintainers.",
+        "lastUpdated": "2026-09-06",
+        "intro": [
+          "Use the <a href=\"https://github.com/grayyan606-stack/AnvilWiki/issues\" rel=\"noopener noreferrer\" target=\"_blank\">public GitHub issue tracker</a> to contact the {siteName} maintainers about this website. This is an external service and may require a GitHub account.",
+          "<strong>Reports are public.</strong> Do not post passwords, payment details, account tokens, home addresses, or other private information. If your request needs private details, ask for a private contact method without including them in the issue. We currently do not publish a private email address or provide a private contact form."
+        ],
+        "sections": [
+          {
+            "heading": "What to Include in a Correction",
+            "items": [
+              "The URL of the affected wiki page and the sentence, value, or link that needs attention",
+              "The proposed correction, its source, and the date or game version you checked",
+              "A relevant screenshot with usernames and other personal information removed, if needed"
+            ]
+          },
+          {
+            "heading": "How Reports Are Reviewed",
+            "paragraphs": [
+              "A maintainer reviews proposed evidence, accuracy, links, and rights before adding a contribution to the website. GitHub issues and pull requests do not automatically become site content. On-site comments and public uploads are disabled. We may ask for supporting evidence, correct or remove a claim, or decline unsupported and unsuitable submissions. There is no guaranteed review or response time.",
+              "Read the <a href=\"/wiki/source-policy\">source policy</a> and check the <a href=\"/updates/data-corrections\">corrections log</a> before submitting a duplicate report."
+            ]
+          },
+          {
+            "heading": "Copyright and Privacy Questions",
+            "paragraphs": [
+              "For a copyright concern, identify the work, the affected wiki URL, and your relationship to the rights holder. Do not publish identity documents or private legal contact information. See the <a href=\"/copyright\">copyright page</a> for the review process and the <a href=\"/privacy-policy\">privacy policy</a> for how public submissions are handled."
+            ]
+          },
+          {
+            "heading": "Game and Account Support",
+            "paragraphs": [
+              "We are independent of Roblox Corporation and the game developer. We cannot change accounts, purchases, rewards, bans, or moderation decisions. Use the <a href=\"{officialUrl}\" rel=\"noopener noreferrer\" target=\"_blank\">official Roblox game page</a> and the support channels provided by Roblox or the developer for those matters."
+            ]
+          }
+        ]
+      },
+      "terms-of-service": {
+        "title": "Terms of Service",
+        "description": "Terms for using Steal an Egg Wiki, including information accuracy, third-party links, contributions, intellectual property, and the repository's MIT license.",
+        "lastUpdated": "2026-09-06",
+        "intro": ["These terms describe use of {siteName}, an independent fan reference. They do not govern your Roblox account or your relationship with the game developer."],
+        "sections": [
+          {
+            "heading": "Using the Site and Its Materials",
+            "paragraphs": [
+              "Guides and tools are freely accessible without a site account. Do not disrupt the site, attempt unauthorized access, or submit unlawful or abusive material through our contribution channels.",
+              "The source repository is distributed under its <a href=\"https://github.com/grayyan606-stack/AnvilWiki/blob/main/LICENSE\" rel=\"noopener noreferrer\" target=\"_blank\">MIT License</a>. These terms do not replace or restrict that license. Preserve the notices required by the applicable license. Third-party images, trademarks, videos, and game assets remain subject to their owners' rights and any separate notices."
+            ]
+          },
+          {
+            "heading": "Accuracy and Calculator Results",
+            "paragraphs": [
+              "Game updates can change prices, stats, rewards, and mechanics. Check dates, evidence labels, and the live game before relying on a value. Calculator results are estimates based on your inputs and the formulas shown; they do not grant rewards or guarantee game outcomes. Content is provided as available, without a guarantee of completeness or continued availability."
+            ]
+          },
+          {
+            "heading": "External Services and Contributions",
+            "paragraphs": [
+              "External websites and videos have their own terms and privacy policies. Linking to them does not give this wiki control over their content, accounts, payments, or services.",
+              "Only submit material you have the right to share, and remove private information first. Contributions are reviewed by a maintainer before publication here; public GitHub submissions remain subject to GitHub's rules. See <a href=\"/contact\">Contact</a> and our <a href=\"/wiki/source-policy\">source policy</a>."
+            ]
+          },
+          {
+            "heading": "Independence and Intellectual Property",
+            "paragraphs": ["This site is not affiliated with, endorsed by, or sponsored by Roblox Corporation or the game developer. Roblox and game-related names, trademarks, and assets belong to their respective owners. See <a href=\"/copyright\">Copyright</a> for details and reporting options."]
+          },
+          {
+            "heading": "Responsibility and Changes",
+            "paragraphs": [
+              "You are responsible for checking information before acting on it. Any limits on liability apply only to the extent permitted by applicable law and do not remove rights that cannot lawfully be excluded.",
+              "Changes to these terms will be posted here with an updated revision date. Questions can be raised through the <a href=\"/contact\">contact page</a>."
+            ]
+          }
+        ]
+      },
+      "copyright": {
+        "title": "Copyright",
+        "description": "Ownership, attribution, MIT licensing, and copyright concern reporting for Steal an Egg Wiki and the third-party game material referenced on its pages.",
+        "lastUpdated": "2026-09-06",
+        "intro": ["Original contributions remain attributable to their authors and contributors. The website's <a href=\"https://github.com/grayyan606-stack/AnvilWiki/blob/main/LICENSE\" rel=\"noopener noreferrer\" target=\"_blank\">repository MIT License</a> remains in effect for the material it covers; this page does not change it."],
+        "sections": [
+          {
+            "heading": "Third-Party Game Material",
+            "paragraphs": [
+              "Roblox is a trademark of Roblox Corporation. {gameName}, game artwork, characters, names, logos, screenshots, and other third-party material belong to their respective rights holders. {siteName} claims no ownership of those materials. A repository license cannot grant rights that its contributors do not hold.",
+              "References and excerpts are included for identification, explanation, or commentary. Whether a particular use is permitted depends on the material, applicable license, and law; this site does not claim that every use automatically qualifies as fair use. Follow any attribution or license notice attached to an asset."
+            ]
+          },
+          {
+            "heading": "Report a Copyright Concern",
+            "paragraphs": [
+              "Use the <a href=\"/contact\">contact page</a> to identify the affected wiki URL, the original work, and your relationship to its rights holder. The listed issue tracker is public: do not include identity documents, home addresses, or other private legal details. Request a private contact method first if further details are necessary.",
+              "A maintainer will assess the information provided and may seek clarification, amend attribution, or remove disputed material. We do not guarantee a fixed response time."
+            ]
+          },
+          {
+            "heading": "Independent Fan Project",
+            "paragraphs": ["{siteName} is not affiliated with, endorsed by, or sponsored by Roblox Corporation or the game developer. Official game support and intellectual-property ownership remain with the relevant organizations."]
+          }
+        ]
+      }
+    }
   }
 }

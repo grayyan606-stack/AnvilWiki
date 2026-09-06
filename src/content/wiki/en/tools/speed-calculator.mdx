@@ -4,7 +4,7 @@ description: 'Estimate Steal an Egg treadmill training time from current speed, 
 category: 'tools'
 image: '../../../../assets/covers/en/tools/speed-calculator.png'
 date: 2026-08-31
-lastModified: 2026-08-31
+lastModified: 2026-09-06
 tags: ['tools', 'calculator', 'speed', 'treadmill']
 gameVersion: 'Aug 26 check'
 summary: 'This Steal an Egg speed calculator estimates total treadmill training time and a realistic daily schedule from your current speed, target, measured gain, and minutes per day. It uses your own sample, not a stale universal threshold table.'
@@ -73,3 +73,53 @@ The calculator is a planning tool, not a promise. Add a margin before you risk a
 ## Why not publish one fixed speed table?
 
 The game updates quickly, and community tables can disagree. This page keeps the calculation honest by using your live inputs. For threshold context and known conflicts, read [all biomes](/biomes/all-biomes) and the [speed training guide](/guides/speed-training).
+
+## How should you choose the target value?
+
+The target field is a planning choice, not a number supplied by this calculator. Start with a value you can verify in the live game, such as the next visible requirement, then decide whether reaching that exact number would be useful. Crossing a gate and completing an egg return are different tasks. A route with turns, other players, a guardian, or a large carried egg may need more room than the displayed minimum.
+
+Create two estimates when the decision matters. The first uses the visible minimum and answers, “How long until I can test this area?” The second adds your chosen margin and answers, “How long until I expect the route to feel manageable?” Keeping both estimates avoids presenting a personal comfort margin as an official requirement.
+
+## How do breaks change the daily estimate?
+
+The daily plan divides calculated training time by the minutes you enter. It assumes those minutes are productive treadmill time. Menu time, server changes, interruptions, and route checks are outside the formula. If a planned 30-minute session usually contains only 20 minutes of continuous training, enter 20 rather than 30.
+
+You can measure this without special software. Note the time when training starts, pause the timer whenever you leave the treadmill, and stop after the session. Compare productive minutes with total elapsed time. Use the productive figure in the calculator and keep the elapsed figure for scheduling your real day.
+
+## How can you compare two training sessions?
+
+Record the same fields for each session:
+
+| Field | Why it matters |
+| --- | --- |
+| Start and end speed | Provides the observed gain |
+| Productive seconds | Converts the gain into a rate |
+| Server and date | Helps identify a changed environment |
+| Interruptions | Explains unusually weak samples |
+| Active boosts shown | Prevents comparing unlike conditions |
+
+Calculate each rate separately before averaging anything. If one result is far above the rest, do not automatically use it. Check whether a visible boost, different treadmill, recording error, or shortened timer explains the gap. For a conservative completion date, use the lower normal result. For a range, calculate once with the lower rate and once with the higher repeatable rate.
+
+## What does the result mean in practice?
+
+A result of several sessions means the arithmetic expects that much training under the inputs you supplied. It does not reserve progress, predict server availability, or guarantee route success. Treat the result as a checkpoint: train for one planned session, measure again, and replace the old rate if the new repeatable result differs.
+
+When the estimate grows after a recheck, look at the inputs before assuming the tool failed. Your target may have increased, the earlier sample may have included a temporary boost, or your recent session may contain more idle time. The formula remains visible so every change can be traced to a field.
+
+## A reusable training worksheet
+
+Before closing the page, save a small note with the check date, current speed, chosen target, two measured rates, rate used, productive minutes per day, calculated days, and reason for the safety margin. That note turns the estimate into a plan you can audit later. After a game update, remeasure one short sample instead of carrying the old rate forward blindly.
+
+If the main question is whether training or egg runs produce the better next improvement, compare the time estimate here with a full return-route measurement from the [Egg Run Planner](/tools/calculators#run-calculator). Choose the task that removes the current bottleneck rather than automatically training toward the most distant zone.
+
+## How should you validate a target before committing the time?
+
+Return to the live gate or route and record what it actually asks for. Separate a displayed requirement from the extra margin you choose for carrying, turns, device controls, and interruption. If the game shows no exact number, use a short test range and state that it is an observation. Do not convert one successful entry into a universal threshold.
+
+Run the calculator with a low, typical, and high measured training rate. The three estimates show how sensitive the schedule is to ordinary variation. If all three fit your available time, the plan is fairly robust. If the dates diverge sharply, collect a better sample or choose a nearer target before promising yourself a completion date.
+
+## What should change after a missed schedule?
+
+Keep the original estimate and identify which input was wrong. Productive minutes may have been lower than planned, the measured rate may have included a temporary effect, or the target may have changed. Update that field and calculate again. Rewriting the past estimate hides the reason for the miss and makes the next plan no more reliable.
+
+Use the revised result as a planning range, not a guarantee. Server changes, pauses, and player decisions remain outside the formula, so the most useful output is a transparent schedule that can be corrected.

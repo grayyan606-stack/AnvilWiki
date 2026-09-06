@@ -1,270 +1,45 @@
 ---
-/**
- * LegalContent — the shared body for each legal page.
- * Renders different content based on the `page` prop. English only (per PRD).
- */
+/** Legal-page copy is maintained in locale JSON, with English fallback. */
 import { site } from '~/config/site';
+import { defaultLocale, isLocale, type Locale } from '~/i18n/routing';
+import { getUi } from '~/i18n/ui';
+import { localizePath } from '~/lib/url';
 
 interface Props {
   page: 'about' | 'privacy-policy' | 'terms-of-service' | 'copyright' | 'contact';
+  locale?: Locale;
 }
-const { page } = Astro.props;
-const game = site.game.name;
-const year = new Date().getFullYear();
+interface LegalSection {
+  heading: string;
+  paragraphs?: string[];
+  items?: string[];
+}
+const { page, locale = isLocale(Astro.currentLocale ?? '') ? Astro.currentLocale as Locale : defaultLocale } = Astro.props;
+const document = getUi(locale).legal.pages[page];
+const sections: LegalSection[] = document.sections;
+const values: Record<string, string> = {
+  siteName: site.name,
+  gameName: site.game.name,
+  gameDeveloper: site.game.developer,
+  officialUrl: site.social.official,
+  year: String(new Date().getFullYear()),
+};
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (character) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}[character] ?? character));
+
+// Only repository-maintained JSON contains markup. Config substitutions are escaped;
+// internal links follow the same locale routing as the rest of the site.
+const renderCopy = (copy: string) => copy
+  .replace(/\{(\w+)\}/g, (token, key: string) => key in values ? escapeHtml(values[key]) : token)
+  .replace(/href="(\/(?!\/)[^"]*)"/g, (_match, path: string) => `href="${localizePath(path, locale)}"`);
 ---
 
-{
-  page === 'about' && (
-    <>
-      <p>
-        {site.name} is a fan-made community wiki dedicated to {game}, a {site.game.genre} on{' '}
-        {site.game.platform} developed by {site.game.developer}. Our mission is to provide accurate,
-        up-to-date guides, tips, and reference material to help players get the most out of the
-        game.
-      </p>
-      <h2>What We Cover</h2>
-      <ul>
-        <li>Verified code and redemption status</li>
-        <li>Egg, pet, mutation, and biome reference pages</li>
-        <li>Progression and route guides for new and returning players</li>
-        <li>Calculators built from player-observed values</li>
-        <li>Dated update checks, evidence labels, and correction notes</li>
-      </ul>
-      <h2>Community-Driven</h2>
-      <p>
-        This wiki is maintained independently. If you spot an error, check the source policy and
-        public correction log before reporting it. All content and calculators are freely accessible
-        — no account required.
-      </p>
-      <h2>Independence and Trademarks</h2>
-      <p>
-        {site.name} is an independent, fan-made resource. It is not affiliated with, endorsed by,
-        sponsored by, or officially connected to Roblox Corporation, {site.game.developer}, or any
-        official {game} community channel. Game support, purchases, moderation, and account issues
-        belong to the official channels above.
-      </p>
-      <p>
-        {game} and related names, logos, characters, artwork, and other game assets are the property
-        of their respective owners. Roblox is a trademark of Roblox Corporation. We use those names
-        and limited references only for identification, commentary, and fan-guide purposes. All
-        original explanations, calculators, layouts, and written guides on this site belong to
-        {site.name}.
-      </p>
-      <h2>How We Work</h2>
-      <p>
-        We separate facts from estimates. Official in-game wording has the highest priority,
-        cross-checked observations come next, and calculator results are always labeled as
-        calculated. If sources disagree, we keep the conflict visible instead of turning it into a
-        fake exact answer. The full process is described in our{' '}
-        <a href="/wiki/source-policy">source and evidence policy</a>, and current known gaps are
-        listed in the <a href="/updates/data-corrections">data corrections log</a>.
-      </p>
-      <h2>Contact</h2>
-      <p>
-        Use the <a href="/contact">contact page</a> for corrections or copyright requests. For game
-        support, purchases, moderation, and account questions, use{' '}
-        <a href={site.social.official} target="_blank" rel="noopener noreferrer">
-          the game's official channels
-        </a>
-        .
-      </p>
-    </>
-  )
-}
-
-{
-  page === 'privacy-policy' && (
-    <>
-      <p>
-        This privacy policy describes how {site.name} ("we", "us", or "our") handles information
-        when you visit this website.
-      </p>
-      <h2>Information We Collect</h2>
-      <p>
-        {site.name} is a static website. We do not require you to create an account or submit
-        personal information. We do not directly collect or store personal data.
-      </p>
-      <h2>Third-Party Services</h2>
-      <p>
-        We use third-party services that may collect information as described in their respective
-        privacy policies:
-      </p>
-      <ul>
-        <li>
-          <strong>Advertising partners</strong> (e.g. Google AdSense) — may use cookies to serve
-          relevant ads. You can opt out of personalized advertising via your browser settings.
-        </li>
-        <li>
-          <strong>Analytics</strong> (e.g. Google Analytics, Cloudflare Web Analytics) — GA may
-          collect anonymized usage data such as page views and approximate location (cookie-based,
-          loaded only after you accept the consent banner); Cloudflare Web Analytics is cookieless
-          and collects aggregate page-view data.
-        </li>
-        <li>
-          <strong>Cloudflare</strong> — our hosting provider, which may process basic request data
-          for security and performance (and serve Web Analytics when enabled, see above).
-        </li>
-        <li>
-          <strong>Comments</strong> (giscus, opt-in) — when the comment section is enabled,
-          giscus.app loads an embedded GitHub view; viewing it exposes your IP address and browser
-          info to that service, and signing in to comment is handled by GitHub under its own privacy
-          policy.
-        </li>
-        <li>
-          <strong>Embedded videos</strong> (YouTube) — pages with videos load thumbnail images from
-          i.ytimg.com and, after you press play, the YouTube player from youtube-nocookie.com. Until
-          you interact, no YouTube cookies are set.
-        </li>
-      </ul>
-      <h2>Advertising and Personalized Ads</h2>
-      <p>
-        If advertising is enabled, Google and its partners may use cookies or device identifiers to
-        serve ads based on your visits to this and other websites. Where required by applicable law,
-        advertising scripts are loaded only after consent. You can control personalized advertising
-        through Google Ads Settings or industry opt-out tools, and through your browser settings.
-      </p>
-
-      <h2>Cookies</h2>
-      <p>
-        Some third-party services set cookies. You can control cookies through your browser
-        settings. Disabling cookies may affect ad personalization but will not prevent you from
-        accessing site content.
-      </p>
-      <h2>Children's Privacy</h2>
-      <p>
-        {site.name} is not directed at children under 13, and we do not knowingly collect
-        information from children.
-      </p>
-      <h2>Changes to This Policy</h2>
-      <p>We may update this policy from time to time. Changes will be posted on this page.</p>
-    </>
-  )
-}
-
-{
-  page === 'terms-of-service' && (
-    <>
-      <p>By accessing {site.name}, you agree to the following terms of service.</p>
-      <h2>Use of Content</h2>
-      <p>
-        All guides, articles, and reference material on this site are provided for personal,
-        non-commercial use. You may not copy, republish, or redistribute our content without
-        attribution and a link back to the original page.
-      </p>
-      <h2>Accuracy</h2>
-      <p>
-        We strive for accuracy but make no warranties regarding the completeness or correctness of
-        any content. {game} is frequently updated, and information may become outdated. Always
-        verify critical information in-game.
-      </p>
-      <h2>Third-Party Links</h2>
-      <p>
-        This site links to external websites (official game channels, video tutorials, etc.) that we
-        do not control. We are not responsible for the content or practices of third-party sites.
-      </p>
-      <h2>Trademarks</h2>
-      <p>
-        {game} and all related trademarks, logos, and assets are the property of{' '}
-        {site.game.developer}. {site.name} is an independent fan project and is not affiliated with
-        or endorsed by {site.game.developer}.
-      </p>
-      <h2>Limitation of Liability</h2>
-      <p>
-        Use of this site is at your own risk. We are not liable for any damages arising from your
-        use of the site or reliance on its content.
-      </p>
-      <h2>Changes to These Terms</h2>
-      <p>
-        We may revise these terms at any time. Continued use of the site after changes constitutes
-        acceptance of the updated terms.
-      </p>
-    </>
-  )
-}
-
-{
-  page === 'copyright' && (
-    <>
-      <h2>Copyright Notice</h2>
-      <p>
-        © {year} {site.name}. All original articles, guides, and written content on this site are
-        the intellectual property of {site.name} and its contributors.
-      </p>
-      <h2>Game Assets</h2>
-      <p>
-        {game}, including its name, logo, characters, artwork, and other related assets, is the
-        property of {site.game.developer}. All {game} content is used on this wiki under fair use
-        for the purpose of providing informational guides to players. {site.name} claims no
-        ownership of any {game} intellectual property.
-      </p>
-      <h2>DMCA / Takedown</h2>
-      <p>
-        If you believe any content on this site infringes your copyright, use our{' '}
-        <a href="/contact">contact page</a> with a detailed description of the allegedly infringing
-        material. We will review valid requests promptly.
-      </p>
-      <h2>Fan-Made Notice</h2>
-      <p>{site.legalNotice}</p>
-    </>
-  )
-}
-
-{
-  page === 'contact' && (
-    <>
-      {/* h2, not h1 — LegalPage already renders the page H1 (single-H1 rule). */}
-      <h2>Contact {site.name}</h2>
-      <p>
-        {site.name} is an independent fan resource. Use the public repository issue tracker for
-        factual corrections, broken links, accessibility problems, or copyright requests.
-      </p>
-      <h2>Community</h2>
-      <ul>
-        <li>
-          <strong>GitHub:</strong>{' '}
-          <a
-            href="https://github.com/grayyan606-stack/AnvilWiki/issues"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open an issue
-          </a>
-        </li>
-        {site.social.discord && (
-          <li>
-            <strong>Discord:</strong>{' '}
-            <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-              Join our server
-            </a>
-          </li>
-        )}
-        {site.social.reddit && (
-          <li>
-            <strong>Reddit:</strong>{' '}
-            <a href={site.social.reddit} target="_blank" rel="noopener noreferrer">
-              r/{site.game.name.replace(/\s+/g, '')}
-            </a>
-          </li>
-        )}
-        {site.social.youtube && (
-          <li>
-            <strong>YouTube:</strong>{' '}
-            <a href={site.social.youtube} target="_blank" rel="noopener noreferrer">
-              {site.name} channel
-            </a>
-          </li>
-        )}
-      </ul>
-      <h2>Contributing</h2>
-      <p>
-        Found a typo or outdated value? Include the page URL, current in-game evidence, and check
-        date in a GitHub issue or pull request. Read the{' '}
-        <a href="/wiki/source-policy">source policy</a> before proposing update-sensitive data.
-      </p>
-      <h2>Reporting Issues</h2>
-      <p>
-        For copyright or takedown requests, see our <a href="/copyright">Copyright page</a>.
-      </p>
-    </>
-  )
-}
+{document.intro.map((paragraph) => <p set:html={renderCopy(paragraph)} />)}
+{sections.map((section) => (
+  <>
+    <h2>{section.heading}</h2>
+    {section.paragraphs?.map((paragraph) => <p set:html={renderCopy(paragraph)} />)}
+    {section.items && <ul>{section.items.map((item) => <li set:html={renderCopy(item)} />)}</ul>}
+  </>
+))}

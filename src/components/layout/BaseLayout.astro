@@ -17,6 +17,7 @@ import { organizationJsonLd } from '~/lib/seo';
 import JsonLd from '~/components/seo/JsonLd.astro';
 import CookieConsent from './CookieConsent.astro';
 import { getUi } from '~/i18n/ui';
+import { getAdsenseClient, canServeAds } from '~/lib/ads';
 
 interface Props {
   title: string;
@@ -30,6 +31,8 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   /** Set to true on article pages for og:type=article. */
   article?: boolean;
+  /** Editorial opt-in; legal, navigation, error and utility pages default to no ads. */
+  adsEnabled?: boolean;
   /** When true, emit <meta name="robots" content="noindex"> to exclude from search. */
   noindex?: boolean;
   /**
@@ -65,6 +68,7 @@ const {
   image = `${siteUrl}/images/hero.webp`,
   jsonLd = [],
   article = false,
+  adsEnabled = false,
   noindex = false,
   titleSuffix,
   ogImageWidth,
@@ -104,7 +108,9 @@ const xDefaultHref = defaultAlt
 const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
 const cfBeaconToken = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
 const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION as string | undefined;
-const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT as string | undefined;
+const adsenseAccount = getAdsenseClient(import.meta.env.PUBLIC_ADSENSE_CLIENT);
+const adsenseClient = canServeAds(adsenseAccount, import.meta.env.PUBLIC_ADSENSE_ENABLED, import.meta.env.PUBLIC_ADSENSE_CMP_READY, adsEnabled && !noindex)
+  ? adsenseAccount : '';
 
 // Consent banner labels (locale JSON `shared.*`; hardcoded fallbacks for a
 // locale whose JSON hasn't been translated yet).
@@ -201,6 +207,8 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
 
     {/* Google Search Console verification (optional) */}
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
+    {/* Static ownership verification does not load advertising or set cookies. */}
+    {adsenseAccount && <meta name="google-adsense-account" content={adsenseAccount} />}
 
     {/*
       Analytics / AdSense are injected DYNAMICALLY (consent-gated).

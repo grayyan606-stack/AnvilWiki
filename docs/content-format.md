@@ -49,6 +49,7 @@ noindex: false
 | `draft`        | boolean  | 可选 | 默认 `false`                         | 草稿：`pnpm dev` 可预览，生产构建完全排除（页面/列表/RSS/sitemap） |
 | `gameVersion`  | string   | 可选 | ≤ 20 字符                            | 适用的游戏版本号（如 `v2.5`），文章头渲染成徽章——快速迭代游戏的时效性/E-E-A-T 信号 |
 | `noindex`      | boolean  | 可选 | 默认 `false`                         | 设为 `true` 禁止搜索引擎索引此页         |
+| `adsEnabled`   | boolean  | 可选 | 默认 `false`                         | 人工审核正文质量后才可选择开启文章末广告；另须全局广告开关、真实广告 ID、已部署并测试的认证 CMP。草稿与 noindex 页不可投放；词数不是 Google 许可凭证。 |
 | `summary`      | string   | 可选 | ≤ 400 字符（40–60 词直答）           | Quick Answer 卡片 + AI Overviews 摘要候选 |
 | `author`       | string   | 可选 | 缺省用 `site.defaultAuthor`           | 作者署名（E-E-A-T）                       |
 | `boss`         | object   | 可选 | hp/weakness/resistant/location/recommendedLevel | 结构化 Boss 数据卡（正文前渲染）   |
