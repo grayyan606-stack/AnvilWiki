@@ -14,7 +14,11 @@ import EvidencePanel from '~/components/article/EvidencePanel.astro';
 import CalculatorSuite from '~/components/article/CalculatorSuite.astro';
 import Callout from '~/components/mdx/Callout.astro';
 
-<EvidencePanel level="Calculated" checked="August 26, 2026" note="Every result is derived locally in your browser from the values you enter. Nothing is uploaded or stored." />
+<EvidencePanel
+  level="Calculated"
+  checked="August 26, 2026"
+  note="Every result is derived locally in your browser from the values you enter. Nothing is uploaded or stored."
+/>
 
 ## Which Steal an Egg calculator should you use?
 
@@ -32,4 +36,39 @@ For a single-goal workflow, use the [offline income calculator](/tools/income-ca
 
 The income tools assume the multipliers you enter apply multiplicatively to the base value. The route tool assumes a stable measured interval. The speed tool assumes your sampled gain rate stays similar. The biome tool does not know guardian behavior; it only adds the margin you choose.
 
-<Callout type="info" title="Use the live card">If the calculator and the game disagree, the live in-game value wins. Update-sensitive mechanics can change without notice.</Callout>
+## How to collect better inputs
+
+Good calculator output starts with disciplined input. Before using any tool, copy these values straight from your current game state:
+
+| Input               | Where to check                                    | Common mistake                                         |
+| ------------------- | ------------------------------------------------- | ------------------------------------------------------ |
+| Base income         | Live pet card or base income display              | Using a screenshot from a previous update              |
+| Mutation multiplier | Current mutation label                            | Assuming the same mutation always gives the same value |
+| Size multiplier     | Current pet size state                            | Ignoring size when comparing two pets                  |
+| Copies              | Number of identical contributing pets             | Comparing one copy with several copies                 |
+| Speed               | Current speed and sampled gain rate               | Treating one fast sprint as a stable rate              |
+| Route time          | Full base-to-target-to-base loop                  | Timing only the trip to the egg                        |
+| Safety margin       | Personal margin for traffic and guardian pressure | Planning from the minimum biome gate                   |
+
+Write the check date next to every value. A calculator is only as reliable as its most outdated input.
+
+## A simple testing loop
+
+1. Record the current setup before you change anything.
+2. Change one variable at a time: pet, mutation, size, speed, or route.
+3. Run the comparison three times.
+4. Enter the median values, not the best possible run.
+5. Record the result and the date.
+
+This keeps the calculator from becoming a guess generator. It also makes it easy to see when a new update has invalidated your old numbers.
+
+## What this suite deliberately does not do
+
+It does not invent hidden drop rates, secret offline caps, or universal biome thresholds. It does not replace the live game. It turns values you can observe into planning numbers. That limitation is intentional because a fast-updating game can make a fixed number wrong very quickly.
+
+If you need the evidence rules behind these labels, read the [source and evidence policy](/wiki/source-policy). For a full testing workflow, see the [research method](/wiki/research-method).
+
+<Callout type="info" title="Use the live card">
+  If the calculator and the game disagree, the live in-game value wins. Update-sensitive mechanics
+  can change without notice.
+</Callout>

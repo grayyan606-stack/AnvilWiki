@@ -15,7 +15,11 @@ import EvidencePanel from '~/components/article/EvidencePanel.astro';
 import SpeedCalculator from '~/components/article/SpeedCalculator.astro';
 import Callout from '~/components/mdx/Callout.astro';
 
-<EvidencePanel level="Calculated" checked="August 31, 2026" note="The planner does not store biome thresholds. It calculates from the speed values and gain rate you enter." />
+<EvidencePanel
+  level="Calculated"
+  checked="August 31, 2026"
+  note="The planner does not store biome thresholds. It calculates from the speed values and gain rate you enter."
+/>
 
 ## How long does Steal an Egg speed training take?
 
@@ -35,7 +39,36 @@ Sample your treadmill gain for at least 30 seconds, then repeat once. Use the lo
 4. Enter the number of minutes you can actually train each day.
 5. Compare the estimate with your route goals.
 
-<Callout type="info" title="Add a safety margin">A biome entry minimum is not always a comfortable carrying speed. Use the [Biome Readiness Checker](/tools/calculators#biome-calculator) before you carry a larger egg through a harder area.</Callout>
+## How to sample speed gain correctly
+
+A calculator is only useful when the gain rate is measured honestly. Use this protocol:
+
+1. Stand on the treadmill in the same server type you plan to play in.
+2. Record your current speed.
+3. Train continuously for at least 30 seconds.
+4. Record the new speed and the exact sample length.
+5. Repeat once or twice.
+6. Use the lower or median gain rate, not the best run.
+7. Recheck after any update that changes movement, treadmill behavior, or biome gates.
+
+If you train in short bursts, record the bursts separately. A 10-second burst and a 10-minute continuous session can produce different usable numbers.
+
+## Common planning mistakes
+
+| Mistake                               | Why it hurts                                              |
+| ------------------------------------- | --------------------------------------------------------- |
+| Using a public minimum as your target | You may enter a biome but fail the carrying route.        |
+| Using the best sample                 | You build a schedule around a lucky run.                  |
+| Ignoring route pressure               | Guardian traffic and busy servers slow escapes.           |
+| Treating a stale guide as current     | A patch can invalidate the old threshold.                 |
+| Not recording the date                | You cannot tell later whether the number is still usable. |
+
+The calculator is a planning tool, not a promise. Add a margin before you risk a high-value egg.
+
+<Callout type="info" title="Add a safety margin">
+  A biome entry minimum is not always a comfortable carrying speed. Use the [Biome Readiness
+  Checker](/tools/calculators#biome-calculator) before you carry a larger egg through a harder area.
+</Callout>
 
 ## Why not publish one fixed speed table?
 

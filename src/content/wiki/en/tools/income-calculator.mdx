@@ -15,7 +15,11 @@ import EvidencePanel from '~/components/article/EvidencePanel.astro';
 import IncomeCalculator from '~/components/article/IncomeCalculator.astro';
 import Callout from '~/components/mdx/Callout.astro';
 
-<EvidencePanel level="Calculated" checked="August 31, 2026" note="The calculator uses only values you enter. It does not infer pet rates, offline caps, or gamepass bonuses." />
+<EvidencePanel
+  level="Calculated"
+  checked="August 31, 2026"
+  note="The calculator uses only values you enter. It does not infer pet rates, offline caps, or gamepass bonuses."
+/>
 
 ## How do you calculate Steal an Egg pet income?
 
@@ -29,15 +33,46 @@ If the game displays a combined rate for your base instead of a per-pet rate, us
 
 ## Which values should you use?
 
-| Input | Best source |
-| --- | --- |
-| Base income | The current pet card or income display in your own base. |
-| Mutation multiplier | A confirmed in-game label, not a chat screenshot. |
-| Size multiplier | The current size state after hatching or feeding. |
-| Copies | The number of the same pet currently contributing. |
-| Hours | Your real planned play or away time. |
+| Input               | Best source                                              |
+| ------------------- | -------------------------------------------------------- |
+| Base income         | The current pet card or income display in your own base. |
+| Mutation multiplier | A confirmed in-game label, not a chat screenshot.        |
+| Size multiplier     | The current size state after hatching or feeding.        |
+| Copies              | The number of the same pet currently contributing.       |
+| Hours               | Your real planned play or away time.                     |
 
-<Callout type="warn" title="Offline behavior can change">Do not assume an offline multiplier, cap, or priority rule unless you can see it in the game interface. Update-sensitive mechanics can change without notice.</Callout>
+## How to test a real income change
+
+The formula is simple, but the decision should be measured. Use this workflow:
+
+1. Record the current pet contribution before changing anything.
+2. Record the candidate pet’s live base rate.
+3. Add mutation, size, and copies for both.
+4. Run the calculator with the same planned hours.
+5. Repeat the in-game observation three times if possible.
+6. Compare the projected gain against the time needed to obtain the pet.
+
+This prevents a common mistake: replacing a well-mutated pet with a higher-base pet that has no comparable mutation or size.
+
+## Example decision rule
+
+If the candidate is only slightly better on paper, check whether one of these is true:
+
+- You can add another copy instead of replacing a good pet.
+- The mutation advantage is larger than the base-rate gap.
+- The route to the candidate is much slower or riskier.
+- Your current setup is still earning while you chase the new pet.
+
+If none of those are clearly true, the upgrade may not be worth the time.
+
+## What the calculator cannot decide
+
+It cannot know whether a pet will remain good after the next update, whether an offline cap exists, or whether your route time makes the target practical. Use it with the [run planner](/tools/calculators#run-calculator) and the [research method](/wiki/research-method) if you need a fuller workflow.
+
+<Callout type="warn" title="Offline behavior can change">
+  Do not assume an offline multiplier, cap, or priority rule unless you can see it in the game
+  interface. Update-sensitive mechanics can change without notice.
+</Callout>
 
 ## When is this more useful than a fixed table?
 

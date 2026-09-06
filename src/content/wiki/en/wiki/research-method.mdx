@@ -1,0 +1,162 @@
+---
+title: 'Steal an Egg Research Method: How We Test and Score'
+description: 'See the original Steal an Egg test protocol used on this wiki: sampling rules, route scoring, calculator inputs, bias checks, and correction handling.'
+category: 'wiki'
+image: '../../../../assets/covers/en/wiki/source-policy.png'
+date: 2026-09-06
+lastModified: 2026-09-06
+tags: ['sources', 'editorial-policy', 'methodology', 'tools']
+gameVersion: 'Post-Cherry Blossom'
+summary: 'This page explains the original research method behind the wiki: measure your own route, sample repeatedly, label evidence, test with calculators, and keep conflicts visible. It is a reusable protocol for readers, not a claim that every number is universally fixed.'
+author: 'Steal an Egg Wiki Editors'
+---
+
+import EvidencePanel from '~/components/article/EvidencePanel.astro';
+import Callout from '~/components/mdx/Callout.astro';
+
+<EvidencePanel
+  level="Methodology"
+  checked="September 6, 2026"
+  note="This is a reusable testing framework. It explains how to collect and score data; it does not invent permanent game constants."
+/>
+
+## Why we publish a method instead of a fixed leaderboard
+
+A wiki for a fast-updating Roblox game can become misleading very quickly. A single screenshot can look convincing, a stale guide can outrank the live game, and a “best pet” claim can be true in one server and false in another. Our method therefore separates three things: what the game says, what we can measure, and what remains uncertain.
+
+We do not claim universal authority over changing values. We build a repeatable process that a player can follow in one afternoon, then repeat after the next update. This gives the reader something more useful than a short-lived answer: a way to produce a current answer.
+
+## What we test first
+
+We prioritize questions where a wrong answer costs time or Robux:
+
+| Priority | Question type                          | Why it matters                                                 |
+| -------- | -------------------------------------- | -------------------------------------------------------------- |
+| 1        | Can a route be repeated safely?        | A high-value target is worthless if you rarely return with it. |
+| 2        | Does a pet actually improve income?    | Rarity does not guarantee a better base contribution.          |
+| 3        | Is a speed target enough for carrying? | Entry speed is not the same as a comfortable escape.           |
+| 4        | Does an event justify changing plans?  | Timed windows reward preparation, not improvisation.           |
+| 5        | Are calculator inputs still valid?     | Small assumptions can change the entire plan.                  |
+
+## Evidence levels we use
+
+Every update-sensitive page uses one of these labels:
+
+| Label               | Meaning                                                      |
+| ------------------- | ------------------------------------------------------------ |
+| Official            | Published by Roblox or the game developer.                   |
+| Cross-checked       | Repeated in more than one recent, independent source.        |
+| Community tracked   | Useful player-recorded data that can change without notice.  |
+| Calculated          | Derived from an exposed formula and user inputs.             |
+| Conflicting reports | Current sources disagree, so the disagreement stays visible. |
+
+The live in-game Pet Index, live egg display, and current speed gate are treated as the highest practical authority. External sources are used for context, not as a replacement for the current game state.
+
+## Step 1: Define the route before collecting data
+
+A route is not just “go to Snow” or “steal a Cherry Blossom egg.” It is a complete loop:
+
+1. Leave the base.
+2. Reach the target biome.
+3. Choose the egg.
+4. Escape the guardian and other players.
+5. Return to base.
+6. Hatch or bank the result.
+
+We time the whole loop, not just the fastest segment. If the route has traffic, guardian pressure, or a long return path, those delays are part of the test.
+
+## Step 2: Record enough samples
+
+A route is not proven by one lucky run. Use at least three samples for a basic sanity check, and more before you make a major decision.
+
+A useful sample sheet has:
+
+| Field                     | Example notes                                          |
+| ------------------------- | ------------------------------------------------------ |
+| Date and server condition | Busy, quiet, update day, event active                  |
+| Pet setup                 | Pet name, mutation, size, copies                       |
+| Speed                     | Current speed and target speed                         |
+| Route                     | Biome and starting point                               |
+| Round-trip time           | Whole loop, not only travel to the nest                |
+| Result                    | Success, fail, abandoned, lost egg                     |
+| Notes                     | Guardian pressure, traffic, mistakes, useful shortcuts |
+
+The median is usually more useful than the fastest run. A single best-case result is not a reliable plan.
+
+## Step 3: Score the route
+
+Use the same scoring idea across routes:
+
+`route score = expected value per successful run × success rate − time cost − risk penalty`
+
+- **Expected value** is what the run can earn after the egg is hatched or banked.
+- **Success rate** is the share of attempts that actually complete.
+- **Time cost** includes travel, waiting, failures, and recovery.
+- **Risk penalty** covers guardian pressure, crowded servers, and unstable routes.
+
+This turns “this biome feels better” into a comparable estimate.
+
+## Step 4: Test the pet separately from the route
+
+A pet can look worse or better depending on the route. We therefore compare pets under the same conditions:
+
+1. Use the same base setup.
+2. Use the same route.
+3. Use the same safety margin.
+4. Record the pet’s live base income.
+5. Add mutation, size, and copies.
+6. Use the [income calculator](/tools/income-calculator).
+
+Only then decide whether one pet is better for your setup. If a strong mutation beats a higher base rate, keep the mutation.
+
+## Step 5: Use calculators as checks, not oracles
+
+The [calculator suite](/tools/calculators) exists to make assumptions visible. It does not hide a secret pet rate, offline cap, or universal biome threshold. If the calculator disagrees with the live game, the live game wins.
+
+We prefer transparent formulas because they can be challenged:
+
+- speed time: `(target speed − current speed) ÷ measured gain per second`
+- pet contribution: `base income × mutation multiplier × size multiplier × copies`
+- run capacity: `spawn interval − round trip − escape buffer`
+
+If a formula is wrong, the error is easy to find and fix.
+
+## Step 6: Look for bias
+
+Common errors that ruin a dataset:
+
+- Testing only during a quiet server and then assuming the result holds on a busy one.
+- Using the best run instead of the median.
+- Comparing two pets with different mutation or size states.
+- Treating a pre-update guide as current evidence.
+- Confusing a biome’s entry threshold with a safe carrying speed.
+- Ignoring the value of your own time.
+
+We label these limitations instead of hiding them.
+
+## Step 7: Handle disagreement honestly
+
+When two community sources disagree, we do not average them into a false exact number. We show both values, the check date, and what they appear to measure. The [data corrections log](/updates/data-corrections) keeps known conflicts public.
+
+If the live game gives a different value, update the page and explain why. A correction should not erase the old context; it should make the current answer easier to trust.
+
+## What readers should copy
+
+If you want to use this site productively, do this:
+
+1. Record your current pet setup and speed.
+2. Time one complete route three times.
+3. Enter the median route time and interval into the [run planner](/tools/calculators#run-calculator).
+4. Compare two pets with the [income calculator](/tools/income-calculator).
+5. Add a safety margin before attempting a harder biome.
+6. Recheck after every major update.
+
+That is the core method. It is deliberately simple, but it prevents most bad decisions caused by stale screenshots and anonymous tier lists.
+
+## Related standards
+
+- [Source and evidence policy](/wiki/source-policy)
+- [Data corrections and known conflicts](/updates/data-corrections)
+- [Pet tier-list framework](/pets/tier-list)
+- [Biome hub and route planning](/biomes/category-overview)
+- [Calculators suite](/tools/calculators)
