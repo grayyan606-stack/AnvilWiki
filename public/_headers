@@ -22,3 +22,8 @@
 # Pagefind search index + UI is rebuilt per deploy — same un-hashed story.
 /pagefind/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Publisher authorization must update immediately when an AdSense account is
+# added, changed, or removed. Never retain an old authorization response.
+/ads.txt
+  Cache-Control: no-store, max-age=0
