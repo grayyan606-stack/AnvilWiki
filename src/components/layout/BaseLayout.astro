@@ -207,8 +207,18 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
 
     {/* Google Search Console verification (optional) */}
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
-    {/* Static ownership verification does not load advertising or set cookies. */}
+    {/* Static ownership verification (meta + AdSense's own snippet). The snippet
+        is required by AdSense site verification; with no slot IDs configured it
+        loads the library only — no ad requests, no rendered ads. */}
     {adsenseAccount && <meta name="google-adsense-account" content={adsenseAccount} />}
+    {adsenseAccount && (
+      <script
+        is:inline
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseAccount}`}
+        crossorigin="anonymous"
+      />
+    )}
 
     {/*
       Analytics / AdSense are injected DYNAMICALLY (consent-gated).
@@ -233,7 +243,7 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
             gtag('js', new Date());
             gtag('config', gaId);
           }
-          if (adsenseClient) {
+          if (adsenseClient && !document.querySelector('script[src*="adsbygoogle.js"]')) {
             const s = document.createElement('script');
             s.async = true;
             s.crossOrigin = 'anonymous';
@@ -320,3 +330,4 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
     )}
   </body>
 </html>
+
